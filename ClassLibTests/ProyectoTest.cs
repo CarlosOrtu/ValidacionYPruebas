@@ -16,14 +16,14 @@ namespace ClassLib.Tests
             p3 = new Proyecto("proyecto3", 3, "Tercer proyecto");
             p1_2 = new Proyecto("proyecto1", 45, "Segunda parte del primer proyecto");
 
-            Usuario u1 = new Usuario("carlos", "contrasena_1", "carlos@gmail.com", "carlos", "ortunez", "645432142");
-            Usuario u2 = new Usuario("guille", "contrasena2", "guille@gmail.com", "guille", "saldaña", "65383927");
-            Usuario u3 = new Usuario("willson", "contrasena_", "willson@gmail.com", "willson", "martinez", "293839281");
+            u1 = new Usuario("carlos", "contrasena_1", "carlos@gmail.com", "carlos", "ortunez", "645432142");
+            u2 = new Usuario("guille", "contrasena2", "guille@gmail.com", "guille", "saldaña", "65383927");
+            u3 = new Usuario("willson", "contrasena_", "willson@gmail.com", "willson", "martinez", "293839281");
 
-            Assert.IsTrue(p1.anadirUsuario(u1));
-            Assert.IsTrue(p1.anadirUsuario(u2));
-            Assert.IsTrue(p1.anadirUsuario(u3));
-            Assert.IsTrue(p2.anadirUsuario(u1));
+            p1.anadirUsuario(u1);
+            p1.anadirUsuario(u2);
+            p1.anadirUsuario(u3);
+            p2.anadirUsuario(u1);
         }
 
         [TestCleanup]
@@ -54,13 +54,29 @@ namespace ClassLib.Tests
         }
 
         [TestMethod]
-        public void retirarEliminarUsuariosTest()
+        public void retirarUsuariosTest()
         {
             Assert.IsTrue(p1.retirarUsuario(u1));
-            Assert.IsFalse(p1.retirarUsuario(u1)); //Falso por retirar un usuario que no está en el proyecto.
-            Assert.IsFalse(p1.retirarUsuario(u2)); //False poruqe no hay usuarios en el proyecto.
+            Assert.IsTrue(p1.retirarUsuario(u2));
+            Assert.IsTrue(p1.retirarUsuario(u3));
+            Assert.IsFalse(p1.retirarUsuario(u2));
+            Assert.IsFalse(p3.retirarUsuario(u2));
+        }
+
+        [TestMethod]
+        public void EliminarIntegrantesTest()
+        {
             Assert.IsTrue(p1.eliminarIntegrantesProyecto());
             Assert.IsFalse(p3.eliminarIntegrantesProyecto()); //Falso porque no tiene ningún ususario asignado al proyecto
+        }
+
+        [TestMethod]
+        public void leerUsuarioTest()
+        {
+            Assert.IsTrue(p1.leerUsuario(u1));
+            Assert.IsTrue(p1.leerUsuario(u2));
+            Assert.IsFalse(p3.leerUsuario(u1));
+            Assert.IsFalse(p2.leerUsuario(u2));
         }
 
         [TestMethod]
