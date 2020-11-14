@@ -96,19 +96,19 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void borraProyectoTest()
         {
-            Assert.AreEqual(b1.borraUsuario(p1.Nombre), p1);
-            Assert.IsNull(b1.borraUsuario(p2.Nombre)); 
+            Assert.AreEqual(b1.borraProyecto(p1.Nombre), p1);
+            Assert.IsNull(b1.borraProyecto(p2.Nombre)); 
         }
 
         [TestMethod()]
-        public void ModificaDatosUsuarioTest()
+        public void ModificaDatosProyectoTest()
         {
             Proyecto pMal = new Proyecto("proyecto1", 12, "Primer proyecto");
-            Proyecto pBien = new Proyecto("proyecto1_1", 8, "Primer proyecto");
+            Proyecto pBien = new Proyecto("proyecto1", 8, "Primer proyecto");
             Proyecto pInexistente = new Proyecto("proyecto2", 1, "Segundo proyecto");
-            Assert.IsFalse(b1.modificaDatosUsuario(pMal));
-            Assert.IsTrue(b1.modificaDatosUsuario(pBien));
-            Assert.IsFalse(b1.modificaDatosUsuario(pInexistente));
+            Assert.IsFalse(b1.modificaDatosProyecto(pMal));
+            Assert.IsTrue(b1.modificaDatosProyecto(pBien));
+            Assert.IsFalse(b1.modificaDatosProyecto(pInexistente));
         }
     }
 }

@@ -58,9 +58,8 @@ namespace ClassLib
             return lista_usuarios.Contains(u1);
         }
 
-        public void modificarDatos(string nombre, int max, string descripcion)
+        public void modificarDatos(int max, string descripcion)
         {
-            this.nombre = nombre;
             this.max = max;
             this.descripcion = descripcion;
         }

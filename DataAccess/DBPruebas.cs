@@ -117,9 +117,9 @@ namespace DataAccess
 
                 Proyecto antiguo = tblProyectos.Values[indice];
 
-                if (antiguo.Nombre != proyecto.Nombre || antiguo.Max != proyecto.Max || antiguo.Descripcion != proyecto.Descripcion)
+                if (antiguo.Max != proyecto.Max || antiguo.Descripcion != proyecto.Descripcion)
                 {
-                    proyecto.modificarDatos(proyecto.Nombre,proyecto.Max,proyecto.Descripcion);
+                    proyecto.modificarDatos(proyecto.Max,proyecto.Descripcion);
                     tblProyectos.Remove(proyecto.Nombre);
                     tblProyectos.Add(proyecto.Nombre,proyecto);
 
@@ -132,7 +132,7 @@ namespace DataAccess
         public Proyecto borraProyecto(string nombre){
             Proyecto retorno = leeProyecto(nombre);
             if (retorno!=null)
-                tblProyectos.Remove(userName);
+                tblProyectos.Remove(nombre);
 
             if (retorno != null && tblProyectos.Any()) 
             {
@@ -140,9 +140,9 @@ namespace DataAccess
                 {
                     if (u1.leerProyecto(retorno))
                     {
-                        tblUsuarios.Remove(u1.userName);
-                        u1.retirarProyecto(p1);
-                        tblProyectos.Add(u1.userName,u1);
+                        tblUsuarios.Remove(u1.UserName);
+                        u1.retirarProyecto(retorno);
+                        tblUsuarios.Add(u1.UserName, u1);
                     }
                 }
             }
