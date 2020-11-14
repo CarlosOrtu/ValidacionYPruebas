@@ -65,7 +65,6 @@ namespace DataAccess.Tests
         public void borraUsuarioTest()
         {
             Assert.AreEqual(b1.borraUsuario(u1.UserName), u1);
-            //Assert.IsTrue(b1.leeProyecto(u1.))
             Assert.IsNull(b1.borraUsuario(u2.UserName)); 
         }
 
@@ -94,5 +93,22 @@ namespace DataAccess.Tests
             Assert.IsNull(b1.leeProyecto(p2.Nombre));
         }
 
+        [TestMethod()]
+        public void borraProyectoTest()
+        {
+            Assert.AreEqual(b1.borraUsuario(p1.Nombre), p1);
+            Assert.IsNull(b1.borraUsuario(p2.Nombre)); 
+        }
+
+        [TestMethod()]
+        public void ModificaDatosUsuarioTest()
+        {
+            Proyecto pMal = new Proyecto("proyecto1", 12, "Primer proyecto");
+            Proyecto pBien = new Proyecto("proyecto1_1", 8, "Primer proyecto");
+            Proyecto pInexistente = new Proyecto("proyecto2", 1, "Segundo proyecto");
+            Assert.IsFalse(b1.modificaDatosUsuario(pMal));
+            Assert.IsTrue(b1.modificaDatosUsuario(pBien));
+            Assert.IsFalse(b1.modificaDatosUsuario(pInexistente));
+        }
     }
 }

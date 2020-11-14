@@ -27,26 +27,6 @@ namespace DataAccess
             tblUsuarios.Add(uAdmin.UserName, uAdmin);
         }
 
-        public bool insertaProyecto(Proyecto proyecto)
-        {
-            if (leeProyecto(proyecto.Nombre) == null)
-            {
-                tblProyectos.Add(proyecto.Nombre, proyecto);
-                return true;
-            }
-
-            return false;
-        }
-
-        public Proyecto leeProyecto(string nombre)
-        {
-            Proyecto retorno = null;
-            if (!tblProyectos.TryGetValue(nombre, out retorno))
-                retorno = null;
-
-            return retorno;
-        }
-
         public Usuario borraUsuario(string userName)
         {
             Usuario retorno = leeUsuario(userName);
@@ -108,6 +88,27 @@ namespace DataAccess
             return false;
         }
 
+
+        public bool insertaProyecto(Proyecto proyecto)
+        {
+            if (leeProyecto(proyecto.Nombre) == null)
+            {
+                tblProyectos.Add(proyecto.Nombre, proyecto);
+                return true;
+            }
+
+            return false;
+        }
+
+        public Proyecto leeProyecto(string nombre)
+        {
+            Proyecto retorno = null;
+            if (!tblProyectos.TryGetValue(nombre, out retorno))
+                retorno = null;
+
+            return retorno;
+        }
+
         public bool modificaDatosProyecto(Proyecto proyecto)
         {
             if (tblProyectos.ContainsKey(proyecto.Nombre) == true)
@@ -128,6 +129,24 @@ namespace DataAccess
             return false;
         }
 
+        public Proyecto borraProyecto(string nombre){
+            Proyecto retorno = leeProyecto(nombre);
+            if (retorno!=null)
+                tblProyectos.Remove(userName);
 
+            if (retorno != null && tblProyectos.Any()) 
+            {
+                foreach(Usuario u1 in tblUsuarios.Values)
+                {
+                    if (u1.leerProyecto(retorno))
+                    {
+                        tblUsuarios.Remove(u1.userName);
+                        u1.retirarProyecto(p1);
+                        tblProyectos.Add(u1.userName,u1);
+                    }
+                }
+            }
+            return retorno;
+        } 
     }
 }
