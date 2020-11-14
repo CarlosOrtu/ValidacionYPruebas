@@ -68,12 +68,19 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
+        public void SyntaxPasswordTest()
+        {
+            Assert.IsFalse(u1.SyntaxPassword("contr"));
+            Assert.IsFalse(u1.SyntaxPassword("contrasena_"));
+            Assert.IsFalse(u1.SyntaxPassword("contrasena1"));
+            Assert.IsTrue(u1.SyntaxPassword("contrasena_nueva1"));
+        }
+
+        [TestMethod()]
         public void checkPasswordTest()
         {
-            Assert.IsFalse(u1.checkPassword("contr"));
-            Assert.IsFalse(u1.checkPassword("contrasena_"));
-            Assert.IsFalse(u1.checkPassword("contrasena1"));
-            Assert.IsTrue(u1.checkPassword("contrasena_nueva1"));
+            Assert.IsTrue(u1.checkPassword("contrasena_1"));
+            Assert.IsFalse(u1.checkPassword("contrasena_2"));
         }
 
         [TestMethod()]

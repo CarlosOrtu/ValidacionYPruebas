@@ -64,7 +64,7 @@ namespace ClassLib
 
         public Boolean changePassword(string oldPassword, string newPassword)
         {
-            if (checkPassword(newPassword) && this.password.Equals(encryptPassword(oldPassword)) && !this.password.Equals(encryptPassword(newPassword)))
+            if (SyntaxPassword(newPassword) && this.password.Equals(encryptPassword(oldPassword)) && !this.password.Equals(encryptPassword(newPassword)))
             {
                 this.active = true;
                 this.password = encryptPassword(newPassword);
@@ -76,6 +76,16 @@ namespace ClassLib
         }
 
         public Boolean checkPassword(string password)
+        {
+            if (this.password.Equals(encryptPassword(password)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public Boolean SyntaxPassword(string password)
         {
             if (password.Length > 7 && password.Contains("_") && containsNumber(password))
             {

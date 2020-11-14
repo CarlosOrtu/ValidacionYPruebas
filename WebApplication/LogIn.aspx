@@ -65,7 +65,7 @@
                     <td class="auto-style2"></td>
                     <td class="auto-style7">Nombre de usuario:</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="TextBox1" runat="server" Width="383px"></asp:TextBox>
+                        <asp:TextBox ID="TBUsername" runat="server" Width="383px"></asp:TextBox>
                     </td>
                     <td class="auto-style2"></td>
                     <td class="auto-style5"></td>
@@ -75,7 +75,7 @@
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style8">Contraseña</td>
                     <td class="auto-style11">
-                        <asp:TextBox ID="TextBox2" runat="server" Width="383px"></asp:TextBox>
+                        <asp:TextBox ID="TBPassword" runat="server" TextMode="Password" Width="383px"></asp:TextBox>
                     </td>
                     <td class="auto-style3">
                         <asp:Label ID="lblError" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
@@ -87,8 +87,7 @@
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style12">
-                        <asp:Button ID="ButtonLogIn" runat="server" Text="Aceptar" Width="258px" />
-                        <asp:Button ID="ButtonNewUser" runat="server" OnClick="Button1_Click" Text="Crear un nuevo usuario" />
+                        <asp:Button ID="ButtonLogIn" runat="server" OnClick="ButtonLogIn_Click" Text="Aceptar" Width="258px" />
                     </td>
                     <td class="auto-style4">&nbsp;</td>
                     <td>&nbsp;</td>
@@ -97,7 +96,9 @@
                     <td>&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style12">
+                        <asp:Button ID="ButtonNewUser" runat="server" OnClick="ButtonNewUser_Click" Text="Crear nuevo usuario" Width="259px" />
+                    </td>
                     <td class="auto-style4">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
