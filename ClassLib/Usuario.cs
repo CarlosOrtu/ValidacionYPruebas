@@ -22,6 +22,7 @@ namespace ClassLib
         private DateTime lastChangePassword;
         private Boolean AdminProyectos;
         private Boolean AdminUsuarios;
+        private List<Proyecto> lista_proyectos = new List<Proyecto>();
 
         public Usuario(string userName, String password, String email, String name, String surname, string phone)
         {
@@ -44,6 +45,7 @@ namespace ClassLib
         public DateTime LastChangePassword { get => lastChangePassword; set => lastChangePassword = value; }
         public bool AdministradorProyectos { get => AdminProyectos; set => AdminProyectos = value; }
         public bool AdministradorUsuarios { get => AdminUsuarios; set => AdminUsuarios = value; }
+        public List<Proyecto> Lista_proyectos { get => lista_proyectos; set => lista_proyectos = value; }
 
         public Boolean checkEmail(string email)
         {
@@ -118,10 +120,16 @@ namespace ClassLib
 
         public void modificarDatos(string email, string name, string surname, string phone)
         {
-            this.email = email;
+            if (checkEmail(email))
+            {
+                this.email = email;
+            }
             this.name = name;
             this.surname = surname;
-            this.phone = phone;
+            if (checkPhone())
+            {
+                this.phone = phone;
+            }
         }
 
         public override bool Equals(object obj)
@@ -138,6 +146,40 @@ namespace ClassLib
         public int CompareTo(object obj)
         {
             return userName.CompareTo(obj);
+        }
+
+        //Metodos lista proyectos
+        public Boolean anadirProyecto(Proyecto p1)
+        {
+            if (!lista_proyectos.Any() || !lista_proyectos.Contains(p1))
+            {
+                lista_proyectos.Add(p1);
+                return true;
+            }
+
+            return false;
+
+        }
+
+        public Boolean retirarProyecto(Proyecto p1)
+        {
+            return lista_proyectos.Remove(p1);
+        }
+
+        public Boolean eliminarProyectos()
+        {
+            if (lista_proyectos.Any())
+            {
+                lista_proyectos.Clear();
+                return true;
+            }
+
+            return false;
+        }
+
+        public Boolean leerProyecto(Proyecto p1)
+        {
+            return lista_proyectos.Contains(p1);
         }
     }
 }
