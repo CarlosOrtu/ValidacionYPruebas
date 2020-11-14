@@ -24,17 +24,11 @@ namespace ClassLib
         public string Nombre { get => nombre; set => nombre = value; }
         public int Max { get => max; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public List<Usuario> Lista_usuarios { get => lista_usuarios; }
+        public List<Usuario> Lista_usuarios { get => lista_usuarios; set => lista_usuarios = value; }
 
         public Boolean anadirUsuario(Usuario u1)
         {
-            if (!lista_usuarios.Any())
-            {
-                lista_usuarios.Add(u1);
-                return true;
-            }
-
-            if(lista_usuarios.Count() < max && !lista_usuarios.Contains(u1)) //&& el usuario existe en la base de datos. 
+            if (!lista_usuarios.Any() || (!lista_usuarios.Contains(u1) && lista_usuarios.Count() < max))
             {
                 lista_usuarios.Add(u1);
                 return true;
@@ -50,13 +44,13 @@ namespace ClassLib
 
         public Boolean eliminarIntegrantesProyecto()
         {
-            if(lista_usuarios.Count() == 0)
+            if (lista_usuarios.Any())
             {
-                return false;
+                lista_usuarios.Clear();
+                return true;
             }
 
-            lista_usuarios.Clear();
-            return true;
+            return false;
         }
 
         public Boolean leerUsuario(Usuario u1)
@@ -70,6 +64,7 @@ namespace ClassLib
             this.max = max;
             this.descripcion = descripcion;
         }
+
         public int CompareTo(object obj)
         {
             return nombre.CompareTo(obj);
