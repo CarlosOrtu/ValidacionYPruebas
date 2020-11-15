@@ -16,5 +16,13 @@ namespace Interfaces
         bool insertaUsuario(Usuario usuario);
 
         bool modificaDatosUsuario(Usuario usuario);
+
+        bool insertaProyecto(Proyecto proyecto);
+
+        Proyecto leeProyecto(string nombre);
+
+        bool modificaDatosProyecto(Proyecto proyecto);
+
+        Proyecto borraProyecto(string nombre);
     }
 }
