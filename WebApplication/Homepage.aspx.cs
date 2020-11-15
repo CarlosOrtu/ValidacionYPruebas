@@ -13,5 +13,10 @@ namespace WebApplication
         {
 
         }
+
+        protected void ButtonLogOut_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("LogIn.aspx");
+        }
     }
 }

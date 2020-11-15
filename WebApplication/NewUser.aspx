@@ -119,6 +119,7 @@
                     <td class="auto-style6">&nbsp;</td>
                     <td>
                         <asp:Button ID="ButtonCreateNewUser" runat="server" OnClick="ButtonCreateNewUser_Click" Text="Aceptar" Width="372px" />
+                        <asp:Label ID="ErrorEmpty" runat="server" Font-Bold="True" ForeColor="Blue"></asp:Label>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
