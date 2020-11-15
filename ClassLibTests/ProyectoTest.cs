@@ -38,6 +38,12 @@ namespace ClassLib.Tests
             u3 = null;
         }
 
+        [TestMethod()]
+        public void UsuarioTest()
+        {
+            Assert.IsTrue(p1.Nombre == "proyecto1" && p1.Max == 12 && p1.Descripcion == "Primer proyecto");
+        }
+
         [TestMethod]
         public void getTest()
         {

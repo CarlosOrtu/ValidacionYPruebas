@@ -9,20 +9,49 @@ namespace ClassLib
     public class Rol : IComparable
     {
         private String tipo_rol;
-        private String ID;
+        private int ID;
         private String descripcion;
-        List<Usuario> lista_usuarios;
+        private List<Usuario> lista_usuarios = new List<Usuario>();
 
-        public Rol(string tipo_rol, string iD)
+        public Rol(string tipo_rol, int iD, string descripcion)
         {
             this.tipo_rol = tipo_rol;
             this.ID = iD;
+            this.descripcion = descripcion;
         }
 
         public string Tipo_rol { get => tipo_rol; }
-        public string ID1 { get => ID; }
+        public int ID1 { get => ID; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public List<Usuario> Lista_usuarios { get => lista_usuarios; set => lista_usuarios = value; }
+
+        public Boolean anadirUsuario(Usuario u1)
+        {
+            if (!lista_usuarios.Any() || !lista_usuarios.Contains(u1))
+            {
+                lista_usuarios.Add(u1);
+                return true;
+            }
+
+            return false;
+        }
+
+        public Boolean retirarUsuario(Usuario u1)
+        {
+            return lista_usuarios.Remove(u1);
+        }
+
+
+        public Boolean leerUsuario(Usuario u1)
+        {
+            return lista_usuarios.Contains(u1);
+        }
+
+        public void modificarDatos(string tipo_rol, string descripcion)
+        {
+            this.tipo_rol = tipo_rol;
+            this.descripcion = descripcion;
+        }
 
         public int CompareTo(object obj)
         {

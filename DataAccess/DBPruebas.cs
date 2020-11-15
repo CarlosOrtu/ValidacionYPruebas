@@ -75,7 +75,6 @@ namespace DataAccess
                 int indice = tblUsuarios.IndexOfKey(usuario.UserName);
 
                 Usuario antiguo = tblUsuarios.Values[indice];
-                int valor = 0;
                 if (antiguo.Email != usuario.Email || antiguo.Phone != usuario.Phone || antiguo.Name != usuario.Name || antiguo.Surname != usuario.Surname)
                 {
                     usuario.modificarDatos(usuario.Email, usuario.Name, usuario.Surname, usuario.Phone);
