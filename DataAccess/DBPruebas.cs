@@ -146,6 +146,66 @@ namespace DataAccess
                 }
             }
             return retorno;
-        } 
+        }
+        
+        public Rol borrarRol(string nombre)
+        {
+            Rol retorno = leeRol(nombre);
+            if (retorno != null)
+                tblRoles.Remove(nombre);
+
+            if (retorno != null && tblProyectos.Any())
+            {
+                foreach (Usuario u1 in tblUsuarios.Values)
+                {
+                    if (u1.Rol == retorno)
+                    {
+                        tblUsuarios.Remove(u1.UserName);
+                        u1.Rol=null;
+                        tblUsuarios.Add(u1.UserName, u1);
+                    }
+                }
+            }
+            return retorno;
+        }
+
+        public Boolean insertarRol(Rol rol)
+        {
+            if (leeRol(rol.Tipo_rol) == null)
+            {
+                tblRoles.Add(rol.Tipo_rol, rol);
+                return true;
+            }
+
+            return false;
+        }
+
+        public Rol leeRol(string nombre)
+        {
+            Rol retorno = null;
+            if (!tblRoles.TryGetValue(nombre, out retorno))
+                retorno = null;
+
+            return retorno;
+        }
+
+        public Boolean modificaDatosRol(Rol rol)
+        {
+            if (tblRoles.ContainsKey(rol.Tipo_rol) == true)
+            {
+                int indice = tblRoles.IndexOfKey(rol.Tipo_rol);
+
+                Rol antiguo = tblRoles.Values[indice];
+
+                if (antiguo.ID1 != rol.ID1 || antiguo.Descripcion != rol.Descripcion)
+                {
+                    tblRoles.Remove(antiguo.Tipo_rol);
+                    tblRoles.Add(rol.Tipo_rol, rol);
+
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -12,8 +12,8 @@ namespace DataAccess.Tests
     [TestClass()]
     public class DBPruebasTests
     {
-        Proyecto p1, p2, p3, p1_2;
-        Usuario u1, u2, u3;
+        Proyecto p1, p2;
+        Usuario u1, u2;
         DBPruebas b1;
 
         [TestInitialize]
@@ -21,12 +21,9 @@ namespace DataAccess.Tests
         {
             p1 = new Proyecto("proyecto1", 12, "Primer proyecto");
             p2 = new Proyecto("proyecto2", 1, "Segundo proyecto");
-            p3 = new Proyecto("proyecto3", 3, "Tercer proyecto");
-            p1_2 = new Proyecto("proyecto1", 45, "Segunda parte del primer proyecto");
 
             u1 = new Usuario("carlos", "contrasena_1", "carlos@gmail.com", "carlos", "ortunez", "645432142");
             u2 = new Usuario("guille", "contrasena_2", "guille@gmail.com", "guille", "saldaña", "65383927");
-            u3 = new Usuario("willson", "contrasena_3", "willson@gmail.com", "willson", "martinez", "293839281");
 
             b1 = new DBPruebas();
 
@@ -39,11 +36,8 @@ namespace DataAccess.Tests
         {
             p1 = null;
             p2 = null;
-            p3 = null;
-            p1_2 = null;
             u1 = null;
             u2 = null;
-            u3 = null;
             b1 = null;
         }
 

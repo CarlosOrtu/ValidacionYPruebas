@@ -23,8 +23,9 @@ namespace ClassLib
         private Boolean AdminProyectos;
         private Boolean AdminUsuarios;
         private List<Proyecto> lista_proyectos = new List<Proyecto>();
+        private Rol rol;
 
-        public Usuario(string userName, String password, String email, String name, String surname, string phone)
+        public Usuario(string userName, String password, String email, String name, String surname, String phone,Rol rol=null)
         {
             this.userName = userName;
             this.active = false;
@@ -33,6 +34,7 @@ namespace ClassLib
             this.name = name;
             this.surname = surname;
             this.phone = phone;
+            this.rol = rol;
         }
 
         public string UserName { get => userName; }
@@ -46,6 +48,7 @@ namespace ClassLib
         public bool AdministradorProyectos { get => AdminProyectos; set => AdminProyectos = value; }
         public bool AdministradorUsuarios { get => AdminUsuarios; set => AdminUsuarios = value; }
         public List<Proyecto> Lista_proyectos { get => lista_proyectos; set => lista_proyectos = value; }
+        public Rol Rol { get => rol; set => rol = value; }
 
         public Boolean checkEmail(string email)
         {
@@ -191,5 +194,8 @@ namespace ClassLib
         {
             return lista_proyectos.Contains(p1);
         }
+
+        //Metodos rol
+        
     }
 }

@@ -47,9 +47,9 @@ namespace ClassLib
             return lista_usuarios.Contains(u1);
         }
 
-        public void modificarDatos(string tipo_rol, string descripcion)
+        public void modificarDatos(int ID, string descripcion)
         {
-            this.tipo_rol = tipo_rol;
+            this.ID = ID;
             this.descripcion = descripcion;
         }
 

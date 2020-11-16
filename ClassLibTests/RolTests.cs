@@ -28,6 +28,16 @@ namespace ClassLib.Tests
             r1.anadirUsuario(u1);
         }
 
+        [TestCleanup]
+        public void CleanUp()
+        {
+            r1 = null;
+            r2 = null;
+            r1_2 = null;
+            u1 = null;
+            u2 = null;
+        }
+
         [TestMethod()]
         public void RolTest()
         {
@@ -58,7 +68,7 @@ namespace ClassLib.Tests
         [TestMethod()]
         public void modificarDatosTest()
         {
-            r1.modificarDatos("Administrador Usuarios", "Nueva descripcion");
+            r1.modificarDatos(4, "Nueva descripcion");
             Assert.IsTrue(r1.Tipo_rol == "Administrador Usuarios" && r1.Descripcion == "Nueva descripcion");
         }
 
