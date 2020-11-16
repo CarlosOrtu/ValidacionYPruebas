@@ -36,8 +36,10 @@ namespace DataAccess
 
             if (retorno != null && tblProyectos.Any()) 
             {
+                List<Proyecto> auxP = new List<Proyecto>();
+                auxP = tblProyectos.Values.ToList();
                 //Buscamos en todos los proyectos los que tengan este usuario y lo retiramos
-                foreach (Proyecto p1 in tblProyectos.Values)
+                foreach (Proyecto p1 in auxP)
                 {
                     if (p1.leerUsuario(retorno))
                     {
@@ -46,8 +48,10 @@ namespace DataAccess
                         tblProyectos.Add(p1.Nombre,p1);
                     }
                 }
+                List<Rol> auxR = new List<Rol>();
+                auxR = tblRoles.Values.ToList();
                 //Buscamos en todos los roles los que tengan este usuario y lo retiramos
-                foreach (Rol r1 in tblRoles.Values)
+                foreach (Rol r1 in auxR)
                 {
                     if (r1.leerUsuario(retorno))
                     {
@@ -92,8 +96,10 @@ namespace DataAccess
                     usuario.modificarDatos(usuario.Email, usuario.Name, usuario.Surname, usuario.Phone);
                     tblUsuarios.Remove(usuario.UserName);
                     tblUsuarios.Add(usuario.UserName, usuario);
+                    List<Proyecto> auxP = new List<Proyecto>();
+                    auxP = tblProyectos.Values.ToList();
                     //Buscamos en todos los proyectos los que tengan este usuario y lo modificamos
-                    foreach (Proyecto p1 in tblProyectos.Values)
+                    foreach (Proyecto p1 in auxP)
                     {
                         if (p1.leerUsuario(antiguo))
                         {
@@ -103,8 +109,10 @@ namespace DataAccess
                             tblProyectos.Add(p1.Nombre, p1);
                         }
                     }
+                    List<Rol> auxR = new List<Rol>();
+                    auxR = tblRoles.Values.ToList();
                     //Buscamos en todos los roles los que tengan este usuario y lo modificamos
-                    foreach (Rol r1 in tblRoles.Values)
+                    foreach (Rol r1 in auxR)
                     {
                         if (r1.leerUsuario(antiguo))
                         {
@@ -154,8 +162,10 @@ namespace DataAccess
                     proyecto.modificarDatos(proyecto.Max,proyecto.Descripcion);
                     tblProyectos.Remove(proyecto.Nombre);
                     tblProyectos.Add(proyecto.Nombre,proyecto);
+                    List<Usuario> aux = new List<Usuario>();
+                    aux = tblUsuarios.Values.ToList();
                     //Buscamos en todos los usuarios los que tengan este proyecto y lo modificamos
-                    foreach (Usuario u1 in tblUsuarios.Values)
+                    foreach (Usuario u1 in aux)
                     {
                         if (u1.leerProyecto(antiguo))
                         {
@@ -176,10 +186,12 @@ namespace DataAccess
             if (retorno!=null)
                 tblProyectos.Remove(nombre);
 
-            if (retorno != null && tblProyectos.Any()) 
+            if (retorno != null && tblUsuarios.Any()) 
             {
+                List<Usuario> aux = new List<Usuario>();
+                aux = tblUsuarios.Values.ToList();
                 //Buscamos en todos los usuarios los que tengan este proyecto y lo retiramos
-                foreach (Usuario u1 in tblUsuarios.Values)
+                foreach (Usuario u1 in aux)
                 {
                     if (u1.leerProyecto(retorno))
                     {
@@ -198,10 +210,12 @@ namespace DataAccess
             if (retorno != null)
                 tblRoles.Remove(nombre);
 
-            if (retorno != null && tblProyectos.Any())
+            if (retorno != null && tblUsuarios.Any())
             {
+                List<Usuario> aux = new List<Usuario>();
+                aux = tblUsuarios.Values.ToList();
                 //Buscamos en todos los usuarios los que tengan este rol y lo eliminamos
-                foreach (Usuario u1 in tblUsuarios.Values)
+                foreach (Usuario u1 in aux)
                 {
                     if (u1.Rol == retorno)
                     {
@@ -247,8 +261,10 @@ namespace DataAccess
                     tblRoles.Remove(antiguo.Tipo_rol);
                     tblRoles.Add(rol.Tipo_rol, rol);
 
+                    List <Usuario> aux = new List<Usuario>();
+                    aux = tblUsuarios.Values.ToList();
                     //Buscamos en todos los usuarios los que tengan este rol y lo modificamos
-                    foreach (Usuario u1 in tblUsuarios.Values)
+                    foreach (Usuario u1 in aux)
                     {
                         if (u1.Rol == antiguo)
                         {
