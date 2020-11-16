@@ -12,8 +12,9 @@ namespace DataAccess.Tests
     [TestClass()]
     public class DBPruebasTests
     {
-        Proyecto p1, p2;
-        Usuario u1, u2;
+        Proyecto p1, p2, p1_rep;
+        Usuario u1, u2, u1_rep;
+        Rol r1, r2, r1_rep;
         DBPruebas b1;
 
         [TestInitialize]
@@ -21,14 +22,21 @@ namespace DataAccess.Tests
         {
             p1 = new Proyecto("proyecto1", 12, "Primer proyecto");
             p2 = new Proyecto("proyecto2", 1, "Segundo proyecto");
+            p1_rep = new Proyecto("proyecto1", 7, "Proyecto repetido");
 
             u1 = new Usuario("carlos", "contrasena_1", "carlos@gmail.com", "carlos", "ortunez", "645432142");
             u2 = new Usuario("guille", "contrasena_2", "guille@gmail.com", "guille", "saldaña", "65383927");
+            u1_rep = new Usuario("carlos", "contrasena_7", "repetido@gmail.com", "repetido", "repetido", "666666666");
+
+            r1 = new Rol("Administrador Usuarios", 1, "Usuario capaz de administrar todo lo relaccionado con usuarios");
+            r2 = new Rol("Administrador Proyectos", 2, "Usuario capaz de administrar todo lo relaccionado con proyectos");
+            r1_rep = new Rol("Administrador Usuarios", 4, "rol repetido");
 
             b1 = new DBPruebas();
 
             b1.insertaUsuario(u1);
             b1.insertaProyecto(p1);
+            b1.insertarRol(r1);
         }
 
         [TestCleanup]
@@ -42,21 +50,22 @@ namespace DataAccess.Tests
         }
 
         [TestMethod()]
-        public void insertaUsuarioTest()
+        public void InsertaUsuarioTest()
         {
             Assert.IsFalse(b1.insertaUsuario(u1)); 
-            Assert.IsTrue(b1.insertaUsuario(u2)); 
+            Assert.IsTrue(b1.insertaUsuario(u2));
+            Assert.IsFalse(b1.insertaUsuario(u1_rep));
         }
 
         [TestMethod()]
-        public void leeUsuarioTest()
+        public void LeeUsuarioTest()
         {
             Assert.AreEqual(b1.leeUsuario(u1.UserName), u1);
             Assert.IsNull(b1.leeUsuario(u2.UserName));
         }
 
         [TestMethod()]
-        public void borraUsuarioTest()
+        public void BorraUsuarioTest()
         {
             Assert.AreEqual(b1.borraUsuario(u1.UserName), u1);
             Assert.IsNull(b1.borraUsuario(u2.UserName)); 
@@ -78,6 +87,7 @@ namespace DataAccess.Tests
         {
             Assert.IsFalse(b1.insertaProyecto(p1));
             Assert.IsTrue(b1.insertaProyecto(p2));
+            Assert.IsFalse(b1.insertaProyecto(p1_rep));
         }
 
         [TestMethod()]
@@ -88,7 +98,7 @@ namespace DataAccess.Tests
         }
 
         [TestMethod()]
-        public void borraProyectoTest()
+        public void BorraProyectoTest()
         {
             Assert.AreEqual(b1.borraProyecto(p1.Nombre), p1);
             Assert.IsNull(b1.borraProyecto(p2.Nombre)); 
@@ -103,6 +113,28 @@ namespace DataAccess.Tests
             Assert.IsFalse(b1.modificaDatosProyecto(pMal));
             Assert.IsTrue(b1.modificaDatosProyecto(pBien));
             Assert.IsFalse(b1.modificaDatosProyecto(pInexistente));
+        }
+
+        [TestMethod()]
+        public void BorrarRolTest()
+        {
+            Assert.AreEqual(b1.borrarRol(r1.Tipo_rol), r1);
+            Assert.IsNull(b1.borrarRol(r2.Tipo_rol));
+        }
+
+        [TestMethod()]
+        public void InsertarRolTest()
+        {
+            Assert.IsTrue(b1.insertarRol(r2));
+            Assert.IsFalse(b1.insertarRol(r1));
+            Assert.IsFalse(b1.insertarRol(r1_rep));
+        }
+
+        [TestMethod()]
+        public void LeeRolTest()
+        {
+            Assert.AreEqual(b1.leeRol(r1.Tipo_rol), r1);
+            Assert.IsNull(b1.leeRol(r2.Tipo_rol));
         }
     }
 }
