@@ -38,23 +38,19 @@ namespace ClassLib.Tests
             u3 = null;
         }
 
-        [TestMethod()]
-        public void UsuarioTest()
-        {
-            Assert.IsTrue(p1.Nombre == "proyecto1" && p1.Max == 12 && p1.Descripcion == "Primer proyecto");
-        }
-
         [TestMethod]
         public void getTest()
         {
             Assert.IsTrue(p1.Nombre == "proyecto1" && p1.Max == 12 && p1.Descripcion == "Primer proyecto");
             Assert.IsTrue(p2.Nombre == "proyecto2" && p2.Max == 1 && p2.Descripcion == "Segundo proyecto");
-            Assert.IsTrue(p3.Nombre == "proyecto3" && p3.Max == 3 && p3.Descripcion == "Tercer proyecto");
+            Assert.IsFalse(p2.Nombre == "proyecto3" && p2.Max == 23 && p2.Descripcion == "Proyecto segundo");
         }
 
         [TestMethod]
         public void anadirUsuarioTest()
         {
+            Assert.IsTrue(p3.anadirUsuario(u1));
+            Assert.IsTrue(p3.anadirUsuario(u2));
             Assert.IsFalse(p2.anadirUsuario(u1)); //Falso por ser un usuario qeu ya está en el proyecto.
             Assert.IsFalse(p2.anadirUsuario(u2)); //Falso por superar el máximo de participantes del proyecto.
         }
@@ -64,9 +60,8 @@ namespace ClassLib.Tests
         {
             Assert.IsTrue(p1.retirarUsuario(u1));
             Assert.IsTrue(p1.retirarUsuario(u2));
-            Assert.IsTrue(p1.retirarUsuario(u3));
-            Assert.IsFalse(p1.retirarUsuario(u2));
-            Assert.IsFalse(p3.retirarUsuario(u2));
+            Assert.IsFalse(p1.retirarUsuario(u2)); //Falso poruqe lo acabamos de reetirar y no está en el proyecto.
+            Assert.IsFalse(p3.retirarUsuario(u3)); //Falso porque el usuario 2 no esta en el proyecto 3
         }
 
         [TestMethod]
@@ -81,16 +76,16 @@ namespace ClassLib.Tests
         {
             Assert.IsTrue(p1.leerUsuario(u1));
             Assert.IsTrue(p1.leerUsuario(u2));
-            Assert.IsFalse(p3.leerUsuario(u1));
-            Assert.IsFalse(p2.leerUsuario(u2));
+            Assert.IsFalse(p3.leerUsuario(u1)); //Falso porque no existe el usuario en ese proyecto
+            Assert.IsFalse(p2.leerUsuario(u2)); //Falso por el mismo motivo que en el caso anterior.
         }
 
         [TestMethod]
         public void EqualsTest()
         {
             Assert.IsTrue(p1.Equals(p1));
-            Assert.IsTrue(p1.Equals(p1_2));
-            Assert.IsFalse(p1.Equals(p2));
+            Assert.IsTrue(p1.Equals(p1_2)); //A pesar de ser dos proyectos distintos tienen el mismo nombre lo qeu les hace iguales.
+            Assert.IsFalse(p1.Equals(p2)); //Falso porque tienen distinto nombre.
         }
 
         [TestMethod()]
