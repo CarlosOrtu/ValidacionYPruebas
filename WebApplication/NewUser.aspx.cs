@@ -51,7 +51,7 @@ namespace WebApplication
                                 if (user.checkPhone())
                                 {
                                     dataBase.insertaUsuario(user);
-                                    Server.Transfer("HomePage.aspx");
+                                    Server.Transfer("ChangePassword.aspx");
                                 }
                                 else
                                 {
