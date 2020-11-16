@@ -22,6 +22,7 @@ namespace DataAccess
         {            
             // Inicilización de los elementos de la base de datos             
             Usuario uAdmin = new Usuario("Administrador","password1", "admin@ubu.es", "Administración", "Proyectos", "947342378");
+            uAdmin.Active = true;
             uAdmin.AdministradorProyectos = true;
             uAdmin.AdministradorUsuarios = true;
             tblUsuarios.Add(uAdmin.UserName, uAdmin);
