@@ -117,7 +117,13 @@ namespace DataAccess.Tests
             Proyecto pBien = new Proyecto("proyecto1", 8, "Primer proyecto");
             Proyecto pInexistente = new Proyecto("proyecto2", 1, "Segundo proyecto");
             Assert.IsFalse(b1.modificaDatosProyecto(pMal));
+            //Comprobacion si al modificar un proyecto tambien se modifica en la lista de proyectos de la clase usuario
+            u1.anadirProyecto(p1);
             Assert.IsTrue(b1.modificaDatosProyecto(pBien));
+            List<Proyecto> lista = u1.Lista_proyectos;
+            int indice= lista.IndexOf(pBien);
+            Assert.IsTrue(lista[indice].Descripcion == pBien.Descripcion && lista[indice].Max == pBien.Max);
+            Assert.IsFalse(lista[indice].Descripcion == p1.Descripcion && lista[indice].Max == p1.Max);
             Assert.IsFalse(b1.modificaDatosProyecto(pInexistente));
         }
 
