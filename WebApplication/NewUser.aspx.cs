@@ -17,7 +17,15 @@ namespace WebApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             dataBase = (DBPruebas)Application["Base de Datos"];
-            user = (Usuario)Session["Usuario"];
+            if (dataBase == null)
+            {
+                dataBase = new DBPruebas();
+                Application["Base de Datos"] = dataBase;
+            }
+
+            //Variable de sesión. Al crear un usuario, inicio el usuario como null.
+            user = null;
+            Session["Usuario"] = user;
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
@@ -50,6 +58,7 @@ namespace WebApplication
                             {
                                 if (user.checkPhone())
                                 {
+                                    Session["Usuario"] = user;
                                     dataBase.insertaUsuario(user);
                                     Server.Transfer("ChangePassword.aspx");
                                 }

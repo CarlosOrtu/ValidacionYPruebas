@@ -24,8 +24,9 @@ namespace WebApplication
                 Application["Base de Datos"] = dataBase;
             }
 
-            //Variable de sesión
-            user = (Usuario)Session["Usuario"];
+            //Variable de sesión. Al ser un inicio de sesión, inicio el usuario como null.
+            user = null;
+            Session["Usuario"] = user;
         }
 
         protected void ButtonLogIn_Click(object sender, EventArgs e)
@@ -33,6 +34,8 @@ namespace WebApplication
             user = dataBase.leeUsuario(TBUsername.Text);
             if( user != null && user.checkPassword(TBPassword.Text) && user.Active == true)
             {
+                Session["Usuario"] = user;
+                user.LastLogIn = DateTime.Now;
                 Server.Transfer("Homepage.aspx");
             }
             else

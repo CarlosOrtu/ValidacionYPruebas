@@ -17,13 +17,21 @@ namespace WebApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             dataBase = (DBPruebas)Application["Base de Datos"];
+            if (dataBase == null)
+            {
+                dataBase = new DBPruebas();
+                Application["Base de Datos"] = dataBase;
+            }
+
             user = (Usuario)Session["Usuario"];
+
         }
 
         protected void ButtonChangePassword_Click(object sender, EventArgs e)
         {
             if(user.changePassword(TBOldPassword.Text,TBChangePassword.Text) && TBChangePassword.Text.Equals(TBChangePassword2.Text))
             {
+                user.LastChangePassword = DateTime.Now;
                 Server.Transfer("Homepage.aspx");
             }
             else
