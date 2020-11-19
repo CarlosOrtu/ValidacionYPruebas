@@ -11,12 +11,13 @@ namespace WebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //VER EL ÚLTIMO VIDEO GRABADO.
         }
 
         protected void ButtonLogOut_Click(object sender, EventArgs e)
         {
             Server.Transfer("LogIn.aspx");
+            //Si usamos Botton.Visible = True; vemos el boton si esta en falso no. TENER EN CUENTA
         }
     }
 }
