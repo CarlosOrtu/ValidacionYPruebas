@@ -12,7 +12,7 @@ namespace ClassLib
         private String nombre;
         private int max;
         private String descripcion;
-        private List<Usuario> lista_usuarios = new List<Usuario>();
+        private Dictionary<Usuario, Rol> lista_usuarios = new Dictionary<Usuario, Rol>();
 
         public Proyecto(string nombre, int max, string descripcion)
         {
@@ -24,13 +24,13 @@ namespace ClassLib
         public string Nombre { get => nombre; set => nombre = value; }
         public int Max { get => max; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public List<Usuario> Lista_usuarios { get => lista_usuarios; set => lista_usuarios = value; }
+        public Dictionary<Usuario, Rol> Lista_usuarios { get => lista_usuarios; set => lista_usuarios = value; }
 
-        public Boolean anadirUsuario(Usuario u1)
+        public Boolean anadirUsuarioConRol(Usuario u1,Rol r1)
         {
-            if (!lista_usuarios.Any() || (!lista_usuarios.Contains(u1) && lista_usuarios.Count() < max))
+            if (!lista_usuarios.Any() || (!lista_usuarios.ContainsKey(u1) && lista_usuarios.Count() < max))
             {
-                lista_usuarios.Add(u1);
+                lista_usuarios.Add(u1,r1);
                 return true;
             }
 
@@ -55,7 +55,7 @@ namespace ClassLib
 
         public Boolean leerUsuario(Usuario u1)
         {
-            return lista_usuarios.Contains(u1);
+            return lista_usuarios.ContainsKey(u1);
         }
 
         public void modificarDatos(int max, string descripcion)

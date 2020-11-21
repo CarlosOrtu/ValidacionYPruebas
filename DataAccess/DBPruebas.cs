@@ -48,18 +48,6 @@ namespace DataAccess
                         tblProyectos.Add(p1.Nombre,p1);
                     }
                 }
-                List<Rol> auxR = new List<Rol>();
-                auxR = tblRoles.Values.ToList();
-                //Buscamos en todos los roles los que tengan este usuario y lo retiramos
-                foreach (Rol r1 in auxR)
-                {
-                    if (r1.leerUsuario(retorno))
-                    {
-                        tblRoles.Remove(r1.Tipo_rol);
-                        r1.retirarUsuario(retorno);
-                        tblRoles.Add(r1.Tipo_rol, r1);
-                    }
-                }
             }
             return retorno;
         }
@@ -103,23 +91,11 @@ namespace DataAccess
                     {
                         if (p1.leerUsuario(antiguo))
                         {
+                            p1.Lista_usuarios.TryGetValue(antiguo, out Rol rol);
                             tblProyectos.Remove(p1.Nombre);
                             p1.retirarUsuario(antiguo);
-                            p1.anadirUsuario(usuario);
+                            p1.anadirUsuarioConRol(usuario,rol);
                             tblProyectos.Add(p1.Nombre, p1);
-                        }
-                    }
-                    List<Rol> auxR = new List<Rol>();
-                    auxR = tblRoles.Values.ToList();
-                    //Buscamos en todos los roles los que tengan este usuario y lo modificamos
-                    foreach (Rol r1 in auxR)
-                    {
-                        if (r1.leerUsuario(antiguo))
-                        {
-                            tblRoles.Remove(r1.Tipo_rol);
-                            r1.retirarUsuario(antiguo);
-                            r1.anadirUsuario(usuario);
-                            tblRoles.Add(r1.Tipo_rol, r1);
                         }
                     }
                     return true;
@@ -212,16 +188,23 @@ namespace DataAccess
 
             if (retorno != null && tblUsuarios.Any())
             {
-                List<Usuario> aux = new List<Usuario>();
-                aux = tblUsuarios.Values.ToList();
+                List<Proyecto> aux = new List<Proyecto>();
+                aux = tblProyectos.Values.ToList();
                 //Buscamos en todos los usuarios los que tengan este rol y lo eliminamos
-                foreach (Usuario u1 in aux)
+                foreach (Proyecto p1 in aux)
                 {
-                    if (u1.Rol == retorno)
+                    List<Usuario> aux2 = new List<Usuario>();
+                    aux2 = p1.Lista_usuarios.Keys.ToList();
+                    foreach (Usuario u1 in aux2)
                     {
-                        tblUsuarios.Remove(u1.UserName);
-                        u1.Rol=null;
-                        tblUsuarios.Add(u1.UserName, u1);
+                        p1.Lista_usuarios.TryGetValue(u1, out Rol r1);
+                        if (r1 == retorno)
+                        {
+                            tblProyectos.Remove(p1.Nombre);
+                            p1.Lista_usuarios.Remove(u1);
+                            p1.anadirUsuarioConRol(u1, null);
+                            tblProyectos.Add(p1.Nombre, p1);
+                        }
                     }
                 }
             }
@@ -261,16 +244,23 @@ namespace DataAccess
                     tblRoles.Remove(antiguo.Tipo_rol);
                     tblRoles.Add(rol.Tipo_rol, rol);
 
-                    List <Usuario> aux = new List<Usuario>();
-                    aux = tblUsuarios.Values.ToList();
-                    //Buscamos en todos los usuarios los que tengan este rol y lo modificamos
-                    foreach (Usuario u1 in aux)
+                    List<Proyecto> aux = new List<Proyecto>();
+                    aux = tblProyectos.Values.ToList();
+                    //Buscamos en todos los usuarios los que tengan este rol y lo eliminamos
+                    foreach (Proyecto p1 in aux)
                     {
-                        if (u1.Rol == antiguo)
+                        List<Usuario> aux2 = new List<Usuario>();
+                        aux2 = p1.Lista_usuarios.Keys.ToList();
+                        foreach (Usuario u1 in aux2)
                         {
-                            tblUsuarios.Remove(u1.UserName);
-                            u1.Rol = rol;
-                            tblUsuarios.Add(u1.UserName, u1);
+                            p1.Lista_usuarios.TryGetValue(u1, out Rol r1);
+                            if (r1 == antiguo)
+                            {
+                                tblProyectos.Remove(p1.Nombre);
+                                p1.Lista_usuarios.Remove(u1);
+                                p1.anadirUsuarioConRol(u1, rol);
+                                tblProyectos.Add(p1.Nombre, p1);
+                            }
                         }
                     }
 

@@ -67,10 +67,8 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void BorraUsuarioTest()
         {
-            r1.anadirUsuario(u1) ;
-            p1.anadirUsuario(u1);
+            p1.anadirUsuarioConRol(u1,r1);
             Assert.AreEqual(b1.borraUsuario(u1.UserName), u1);
-            Assert.IsFalse(r1.leerUsuario(u1));
             Assert.IsFalse(p1.leerUsuario(u1));
             Assert.IsNull(b1.borraUsuario(u2.UserName)); 
         }
@@ -130,9 +128,10 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void BorrarRolTest()
         {
-            u1.Rol = r1;
+            p1.anadirUsuarioConRol(u1, r1);
             Assert.AreEqual(b1.borrarRol(r1.Tipo_rol), r1);
-            Assert.IsNull(u1.Rol);
+            foreach (Rol r in p1.Lista_usuarios.Values)
+                Assert.AreNotEqual(r, r1);
             Assert.IsNull(b1.borrarRol(r2.Tipo_rol));
         }
 
@@ -159,9 +158,10 @@ namespace DataAccess.Tests
             Rol rInexistente = new Rol("proyecto2", 1, "Segundo proyecto");
             Assert.IsFalse(b1.modificaDatosRol(rMal));
             //Insertamos un rol en un usuario para comprobar si este se modifica correctamente
-            u1.Rol = r1;
+            p1.anadirUsuarioConRol(u1, r1);
             Assert.IsTrue(b1.modificaDatosRol(rBien));
-            Assert.IsTrue(u1.Rol.Descripcion == rBien.Descripcion);
+            p1.Lista_usuarios.TryGetValue(u1, value: out Rol r);
+            Assert.IsTrue(r.Descripcion == rBien.Descripcion);
             Assert.IsFalse(b1.modificaDatosRol(rInexistente));
         }
     }
