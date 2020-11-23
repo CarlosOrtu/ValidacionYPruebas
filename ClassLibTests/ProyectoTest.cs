@@ -8,6 +8,7 @@ namespace ClassLib.Tests
         Proyecto p1, p2, p3, p1_2;
         Usuario u1, u2;
         Rol r1, r2;
+        HistoriasUsuario h1;
 
         [TestInitialize]
         public void ProyectInicialice()
@@ -23,8 +24,11 @@ namespace ClassLib.Tests
             r1 = new Rol("Administrador Usuarios", 1, "Usuario capaz de administrar todo lo relaccionado con usuarios");
             r2 = new Rol("Administrador Proyectos", 2, "Usuario capaz de administrar todo lo relaccionado con proyectos");
 
-            p1.anadirUsuarioConRol(u1,r1);
-            p2.anadirUsuarioConRol(u1,r1);
+            h1 = new HistoriasUsuario(1, "Historia prueba", "Como", "Que", "Para que", p1);
+
+            p1.AnadirUsuarioConRol(u1,r1);
+            p1.AñadirHistoriaUsuario(h1);
+            p2.AnadirUsuarioConRol(u1,r1);
         }
 
         [TestCleanup]
@@ -36,43 +40,73 @@ namespace ClassLib.Tests
             u2 = null;
             r1 = null;
             r2 = null;
+            h1 = null;
         }
 
         [TestMethod]
-        public void getTest()
+        public void GetTest()
         {
             Assert.IsTrue(p1.Nombre == "proyecto1" && p1.Max == 12 && p1.Descripcion == "Primer proyecto");
             Assert.IsFalse(p2.Nombre == "proyecto3" && p2.Max == 23 && p2.Descripcion == "Proyecto segundo");
         }
 
         [TestMethod]
-        public void anadirUsuarioTest()
+        public void AnadirUsuarioTest()
         {
-            Assert.IsTrue(p1.anadirUsuarioConRol(u2,r1));
-            Assert.IsFalse(p2.anadirUsuarioConRol(u1, r1)); //Falso por ser un usuario qeu ya está en el proyecto.
-            Assert.IsFalse(p2.anadirUsuarioConRol(u2, r2)); //Falso por superar el máximo de participantes del proyecto.
+            Assert.IsTrue(p1.AnadirUsuarioConRol(u2,r1));
+            Assert.IsFalse(p2.AnadirUsuarioConRol(u1, r1)); //Falso por ser un usuario qeu ya está en el proyecto.
+            Assert.IsFalse(p2.AnadirUsuarioConRol(u2, r2)); //Falso por superar el máximo de participantes del proyecto.
         }
 
         [TestMethod]
-        public void retirarUsuariosTest()
+        public void RetirarUsuariosTest()
         {
-            Assert.IsTrue(p1.retirarUsuario(u1));
-            Assert.IsFalse(p1.retirarUsuario(u1)); //Falso porque lo acabamos de retirar
-            Assert.IsFalse(p2.retirarUsuario(u2)); //Falso porque el usuario 2 no esta en el proyecto 3
+            Assert.IsTrue(p1.RetirarUsuario(u1));
+            Assert.IsFalse(p1.RetirarUsuario(u1)); //Falso porque lo acabamos de retirar
+            Assert.IsFalse(p2.RetirarUsuario(u2)); //Falso porque el usuario 2 no esta en el proyecto 3
         }
 
         [TestMethod]
         public void EliminarIntegrantesTest()
         {
-            Assert.IsTrue(p1.eliminarIntegrantesProyecto());
-            Assert.IsFalse(p3.eliminarIntegrantesProyecto()); //Falso porque no tiene ningún ususario asignado al proyecto
+            Assert.IsTrue(p1.EliminarIntegrantesProyecto());
+            Assert.IsFalse(p3.EliminarIntegrantesProyecto()); //Falso porque no tiene ningún ususario asignado al proyecto
         }
 
         [TestMethod]
-        public void leerUsuarioTest()
+        public void LeerUsuarioTest()
         {
-            Assert.IsTrue(p1.leerUsuario(u1));
-            Assert.IsFalse(p2.leerUsuario(u2)); //Falso por el mismo motivo que en el caso anterior.
+            Assert.IsTrue(p1.LeerUsuario(u1));
+            Assert.IsFalse(p2.LeerUsuario(u2)); //Falso por el mismo motivo que en el caso anterior.
+        }
+
+        [TestMethod]
+        public void AñadirHistoriaUsuarioTest()
+        {
+            Assert.IsFalse(p1.AñadirHistoriaUsuario(h1));
+            Assert.IsTrue(p2.AñadirHistoriaUsuario(h1));
+        }
+
+        [TestMethod]
+        public void RetirarHistoriaUsuarioTest()
+        {
+            Assert.IsTrue(p1.RetirarHistoriaUsuario(h1));
+            Assert.IsFalse(p1.RetirarHistoriaUsuario(h1));
+            Assert.IsFalse(p2.RetirarHistoriaUsuario(h1));
+        }
+
+        [TestMethod]
+        public void LeerHistoriaUsuarioTest()
+        {
+            Assert.IsTrue(p1.LeerHistoriaUsuario(h1));
+            Assert.IsFalse(p2.LeerHistoriaUsuario(h1));
+        }
+
+        [TestMethod]
+        public void ModificarDatosTest()
+        {
+            p1.ModificarDatos(20, "Proyecto modificado");
+            Assert.IsTrue(p1.Max == 20 && p1.Descripcion == "Proyecto modificado");
         }
 
         [TestMethod]

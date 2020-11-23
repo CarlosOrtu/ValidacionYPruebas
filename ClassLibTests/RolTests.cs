@@ -31,9 +31,9 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
-        public void modificarDatosTest()
+        public void ModificarDatosTest()
         {
-            r1.modificarDatos(4, "Nueva descripcion");
+            r1.ModificarDatos(4, "Nueva descripcion");
             Assert.IsTrue(r1.Tipo_rol == "Administrador Usuarios" && r1.Descripcion == "Nueva descripcion");
         }
 

@@ -48,7 +48,7 @@ namespace ClassLib
             return 1213502048 + ID.GetHashCode();
         }
 
-        public void modificarDatos(string descripcion, string como, string que, string paraQue, Proyecto proyectoAsociado)
+        public void ModificarDatos(string descripcion, string como, string que, string paraQue, Proyecto proyectoAsociado)
         {
             this.descripcion = descripcion;
             this.como = como;

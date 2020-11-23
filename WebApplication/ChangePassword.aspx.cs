@@ -29,7 +29,7 @@ namespace WebApplication
 
         protected void ButtonChangePassword_Click(object sender, EventArgs e)
         {
-            if(user.changePassword(TBOldPassword.Text,TBChangePassword.Text) && TBChangePassword.Text.Equals(TBChangePassword2.Text))
+            if(user.ChangePassword(TBOldPassword.Text,TBChangePassword.Text) && TBChangePassword.Text.Equals(TBChangePassword2.Text))
             {
                 user.LastChangePassword = DateTime.Now;
                 Server.Transfer("Homepage.aspx");

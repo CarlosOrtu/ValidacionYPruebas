@@ -36,7 +36,7 @@ namespace WebApplication
         protected void ButtonCreateNewUser_Click(object sender, EventArgs e)
         {
             //Elimina el texto de error de los label. ¿Alguna Herramienta que no nos haga hacer esto? Una herramienta del tipo "Error"?
-            newLabel();
+            NewLabel();
 
             if (string.IsNullOrEmpty(NewTBUserName.Text) || string.IsNullOrEmpty(NewTBPassword.Text) || string.IsNullOrEmpty(NewTBRepeatPassword.Text)
                 || string.IsNullOrEmpty(NewTBEmail.Text) || string.IsNullOrEmpty(NewTBName.Text) || string.IsNullOrEmpty(NewTBSurname.Text)
@@ -54,9 +54,9 @@ namespace WebApplication
                     {
                         if (NewTBPassword.Text.Equals(NewTBRepeatPassword.Text))
                         {
-                            if (user.checkEmail(NewTBEmail.Text))
+                            if (user.CheckEmail(NewTBEmail.Text))
                             {
-                                if (user.checkPhone())
+                                if (user.CheckPhone())
                                 {
                                     Session["Usuario"] = user;
                                     dataBase.insertaUsuario(user);
@@ -90,7 +90,7 @@ namespace WebApplication
             }
         }
 
-        private void newLabel()
+        private void NewLabel()
         {
             ErrorEmpty.Text = "";
             ErrorUserNameExists.Text = "";

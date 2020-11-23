@@ -23,7 +23,7 @@ namespace ClassLib
         public int ID1 { get => ID; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
 
-        public void modificarDatos(int ID, string descripcion)
+        public void ModificarDatos(int ID, string descripcion)
         {
             this.ID = ID;
             this.descripcion = descripcion;

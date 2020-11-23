@@ -24,11 +24,11 @@ namespace ClassLib
         private Boolean AdminUsuarios;
         private List<Proyecto> lista_proyectos = new List<Proyecto>();
 
-        public Usuario(string userName, String password, String email, String name, String surname, String phone,Rol rol=null)
+        public Usuario(string userName, String password, String email, String name, String surname, String phone)
         {
             this.userName = userName;
             this.active = false;
-            this.password = encryptPassword(password);
+            this.password = EncryptPassword(password);
             this.email = email;
             this.name = name;
             this.surname = surname;
@@ -47,12 +47,12 @@ namespace ClassLib
         public bool AdministradorUsuarios { get => AdminUsuarios; set => AdminUsuarios = value; }
         public List<Proyecto> Lista_proyectos { get => lista_proyectos; set => lista_proyectos = value; }
 
-        public Boolean checkEmail(string email)
+        public Boolean CheckEmail(string email)
         {
             return Regex.IsMatch(email, @"\A[^@\s]+@[^@\s]+\.(com|es)\Z");
         }
 
-        public Boolean checkPhone()
+        public Boolean CheckPhone()
         {
             if (this.phone.Length == 9 && (this.phone.First() == '6' || this.phone.First() == '7'))
             {
@@ -62,12 +62,12 @@ namespace ClassLib
             return false;
         }
 
-        public Boolean changePassword(string oldPassword, string newPassword)
+        public Boolean ChangePassword(string oldPassword, string newPassword)
         {
-            if (SyntaxPassword(newPassword) && this.password.Equals(encryptPassword(oldPassword)) && !this.password.Equals(encryptPassword(newPassword)))
+            if (SyntaxPassword(newPassword) && this.password.Equals(EncryptPassword(oldPassword)) && !this.password.Equals(EncryptPassword(newPassword)))
             {
                 this.active = true;
-                this.password = encryptPassword(newPassword);
+                this.password = EncryptPassword(newPassword);
                 lastChangePassword = DateTime.Now;
                 return true;
             }
@@ -75,9 +75,9 @@ namespace ClassLib
             return false;
         }
 
-        public Boolean checkPassword(string password)
+        public Boolean CheckPassword(string password)
         {
-            if (this.password.Equals(encryptPassword(password)))
+            if (this.password.Equals(EncryptPassword(password)))
             {
                 return true;
             }
@@ -87,7 +87,7 @@ namespace ClassLib
 
         public Boolean SyntaxPassword(string password)
         {
-            if (password.Length > 7 && password.Contains("_") && containsNumber(password))
+            if (password.Length > 7 && password.Contains("_") && ContainsNumber(password))
             {
                 return true;
             }
@@ -95,7 +95,7 @@ namespace ClassLib
             return false;
         }
 
-        public Boolean containsNumber(string password)
+        public Boolean ContainsNumber(string password)
         {
             string numbers = "0123456789";
 
@@ -110,16 +110,16 @@ namespace ClassLib
             return false;
         }
 
-        public string encryptPassword(string password)
+        public string EncryptPassword(string password)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password);
             SHA256 mySHA256 = SHA256.Create(); bytes = mySHA256.ComputeHash(bytes);
             return (System.Text.Encoding.ASCII.GetString(bytes));
         }
 
-        public Boolean logIn(string userName, string password)
+        public Boolean LogIn(string userName, string password)
         {
-            if (userName.Equals(this.userName) && encryptPassword(password).Equals(this.password) && active == true)
+            if (userName.Equals(this.userName) && EncryptPassword(password).Equals(this.password) && active == true)
             {
                 lastLogIn = DateTime.Now;
                 return true;
@@ -128,15 +128,15 @@ namespace ClassLib
             return false;
         }
 
-        public void modificarDatos(string email, string name, string surname, string phone)
+        public void ModificarDatos(string email, string name, string surname, string phone)
         {
-            if (checkEmail(email))
+            if (CheckEmail(email))
             {
                 this.email = email;
             }
             this.name = name;
             this.surname = surname;
-            if (checkPhone())
+            if (CheckPhone())
             {
                 this.phone = phone;
             }
@@ -159,7 +159,7 @@ namespace ClassLib
         }
 
         //Metodos lista proyectos
-        public Boolean anadirProyecto(Proyecto p1)
+        public Boolean AnadirProyecto(Proyecto p1)
         {
             if (!lista_proyectos.Any() || !lista_proyectos.Contains(p1))
             {
@@ -171,12 +171,12 @@ namespace ClassLib
 
         }
 
-        public Boolean retirarProyecto(Proyecto p1)
+        public Boolean RetirarProyecto(Proyecto p1)
         {
             return lista_proyectos.Remove(p1);
         }
 
-        public Boolean eliminarProyectos()
+        public Boolean EliminarProyectos()
         {
             if (lista_proyectos.Any())
             {
@@ -187,7 +187,7 @@ namespace ClassLib
             return false;
         }
 
-        public Boolean leerProyecto(Proyecto p1)
+        public Boolean LeerProyecto(Proyecto p1)
         {
             return lista_proyectos.Contains(p1);
         }
