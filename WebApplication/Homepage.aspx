@@ -32,7 +32,7 @@
                     <asp:Label ID="lblUserName" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style2">
-                    <asp:Button ID="ButtonProyectList" runat="server" Text="Ver lista proyectos" />
+                    <asp:Button ID="ButtonProyectList" runat="server" Text="Ver lista proyectos" OnClick="ButtonProyectList_Click" />
                 </td>
                 <td class="auto-style3">&nbsp;</td>
                 <td class="auto-style1">

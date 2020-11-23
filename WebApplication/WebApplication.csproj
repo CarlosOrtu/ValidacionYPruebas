@@ -71,6 +71,7 @@
     <Content Include="Homepage.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="NewUser.aspx" />
+    <Content Include="ProyectList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +104,13 @@
       <DependentUpon>NewUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProyectList.aspx.cs">
+      <DependentUpon>ProyectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProyectList.aspx.designer.cs">
+      <DependentUpon>ProyectList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

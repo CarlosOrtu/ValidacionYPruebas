@@ -32,7 +32,13 @@ namespace WebApplication
                 lblLastPasswordChange.Text = user.LastChangePassword.ToString();
             }
 
-            
+            Proyecto p1 = new Proyecto("proyecto1", 3, "descipcion1");
+            Proyecto p2 = new Proyecto("proyecto1", 3, "descipcion1");
+            Proyecto p3 = new Proyecto("proyecto1", 3, "descipcion1");
+            user.anadirProyecto(p1);
+            user.anadirProyecto(p2);
+            user.anadirProyecto(p3);
+
         }
 
         protected void ButtonLogOut_Click(object sender, EventArgs e)
@@ -44,6 +50,11 @@ namespace WebApplication
         protected void ButtonChangePassword_Click(object sender, EventArgs e)
         {
             Server.Transfer("ChangePassword.aspx");
+        }
+
+        protected void ButtonProyectList_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("");
         }
     }
 }
