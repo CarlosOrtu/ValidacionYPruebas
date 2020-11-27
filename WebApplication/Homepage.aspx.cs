@@ -26,23 +26,33 @@ namespace WebApplication
 
             //Variable de sesión. 
             user = (Usuario)Session["Usuario"];
-            if(user != null)
+            if (user != null)
             {
-                lblUserName.Text = user.UserName;
+                lblUserName.Text = user.Name;
                 lblLastPasswordChange.Text = user.LastChangePassword.ToString();
+                if(user.AdministradorUsuarios || user.AdministradorProyectos)
+                {
+                    LblTitleAdmin.Text = "Apartado del Administrador";
+                    if (user.AdministradorProyectos)
+                    {
+                        ButtonAdminisProyect.Visible = true;
+                    }
+                    if (user.AdministradorUsuarios)
+                    {
+                        ButtonAdminisUser.Visible = true;
+                    }
+                }
             }
-
-            Proyecto p1 = new Proyecto("proyecto1", 3, "descipcion1");
-            Proyecto p2 = new Proyecto("proyecto1", 3, "descipcion1");
-            Proyecto p3 = new Proyecto("proyecto1", 3, "descipcion1");
-            user.AnadirProyecto(p1);
-            user.AnadirProyecto(p2);
-            user.AnadirProyecto(p3);
+            else
+            {
+                Server.Transfer("LogIn.aspx");
+            }
 
         }
 
         protected void ButtonLogOut_Click(object sender, EventArgs e)
         {
+            user = null;
             Server.Transfer("LogIn.aspx");
             //Si usamos Botton.Visible = True; vemos el boton si esta en falso no. TENER EN CUENTA
         }
@@ -56,5 +66,12 @@ namespace WebApplication
         {
             Server.Transfer("ProyectList.aspx");
         }
+
+        protected void ButtonChangeUserDates_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("ChangeUserDates.aspx");
+        }
+
+        
     }
 }

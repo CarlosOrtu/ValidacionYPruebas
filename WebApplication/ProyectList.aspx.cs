@@ -27,9 +27,10 @@ namespace WebApplication
 
             //Variable de sesión. 
             user = (Usuario)Session["Usuario"];
-
-            
-            
+            if (user == null)
+            {
+                Server.Transfer("LogIn.aspx");
+            }
         }
 
     }

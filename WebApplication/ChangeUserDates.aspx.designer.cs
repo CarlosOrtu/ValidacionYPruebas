@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class Homepage
+    public partial class ChangeUserDates
     {
 
         /// <summary>
@@ -24,84 +24,75 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lblUserName.
+        /// Control ButtonBack.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control ButtonListProjects.
+        /// Control TextBoxEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonListProjects;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
 
         /// <summary>
-        /// Control ButtonLogOut.
+        /// Control LblNoChangeEmail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonLogOut;
+        protected global::System.Web.UI.WebControls.Label LblNoChangeEmail;
 
         /// <summary>
-        /// Control ButtonChangeUserDates.
+        /// Control TextBoxName.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonChangeUserDates;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
 
         /// <summary>
-        /// Control ButtonChangePassword.
+        /// Control TextBoxSurname.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonChangePassword;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxSurname;
 
         /// <summary>
-        /// Control lblLastPasswordChange.
+        /// Control TextBoxPhone.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLastPasswordChange;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPhone;
 
         /// <summary>
-        /// Control LblTitleAdmin.
+        /// Control LblNoChangePhone.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblTitleAdmin;
+        protected global::System.Web.UI.WebControls.Label LblNoChangePhone;
 
         /// <summary>
-        /// Control ButtonAdminisUser.
+        /// Control ButtonChange.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAdminisUser;
-
-        /// <summary>
-        /// Control ButtonAdminisProyect.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAdminisProyect;
+        protected global::System.Web.UI.WebControls.Button ButtonChange;
     }
 }

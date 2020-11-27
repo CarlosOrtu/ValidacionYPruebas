@@ -24,7 +24,10 @@ namespace WebApplication
             }
 
             user = (Usuario)Session["Usuario"];
-
+            if (user == null)
+            {
+                Server.Transfer("LogIn.aspx");
+            }
         }
 
         protected void ButtonChangePassword_Click(object sender, EventArgs e)
