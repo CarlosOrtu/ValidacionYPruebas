@@ -52,9 +52,9 @@ namespace WebApplication
             Server.Transfer("ChangePassword.aspx");
         }
 
-        protected void ButtonProyectList_Click(object sender, EventArgs e)
+        protected void ButtonListProjects_Click(object sender, EventArgs e)
         {
-            Server.Transfer("");
+            Server.Transfer("ProyectList.aspx");
         }
     }
 }

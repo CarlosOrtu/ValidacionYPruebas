@@ -33,13 +33,13 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Label lblUserName;
 
         /// <summary>
-        /// Control ButtonProyectList.
+        /// Control ButtonListProjects.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonProyectList;
+        protected global::System.Web.UI.WebControls.Button ButtonListProjects;
 
         /// <summary>
         /// Control ButtonLogOut.

@@ -28,10 +28,9 @@ namespace WebApplication
             //Variable de sesión. 
             user = (Usuario)Session["Usuario"];
 
-            if(user.Lista_proyectos != null)
-            {
-                ListBox1.Text = user.Lista_proyectos.ToString();
-            }
+            
+            
         }
+
     }
 }
