@@ -35,9 +35,9 @@ namespace WebApplication
             Proyecto p1 = new Proyecto("proyecto1", 3, "descipcion1");
             Proyecto p2 = new Proyecto("proyecto1", 3, "descipcion1");
             Proyecto p3 = new Proyecto("proyecto1", 3, "descipcion1");
-            user.anadirProyecto(p1);
-            user.anadirProyecto(p2);
-            user.anadirProyecto(p3);
+            user.AnadirProyecto(p1);
+            user.AnadirProyecto(p2);
+            user.AnadirProyecto(p3);
 
         }
 

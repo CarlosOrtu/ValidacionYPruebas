@@ -13,6 +13,7 @@ namespace ClassLib
         private int max;
         private String descripcion;
         private Dictionary<Usuario, Rol> lista_usuarios = new Dictionary<Usuario, Rol>();
+        private List<HistoriasUsuario> lista_historia_usuario = new List<HistoriasUsuario>();
 
         public Proyecto(string nombre, int max, string descripcion)
         {
@@ -25,8 +26,9 @@ namespace ClassLib
         public int Max { get => max; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public Dictionary<Usuario, Rol> Lista_usuarios { get => lista_usuarios; set => lista_usuarios = value; }
+        public List<HistoriasUsuario> Lista_historia_usuario { get => lista_historia_usuario; set => lista_historia_usuario = value; }
 
-        public Boolean anadirUsuarioConRol(Usuario u1,Rol r1)
+        public Boolean AnadirUsuarioConRol(Usuario u1,Rol r1)
         {
             if (!lista_usuarios.Any() || (!lista_usuarios.ContainsKey(u1) && lista_usuarios.Count() < max))
             {
@@ -37,12 +39,12 @@ namespace ClassLib
             return false;
         }
 
-        public Boolean retirarUsuario(Usuario u1)
+        public Boolean RetirarUsuario(Usuario u1)
         {
             return lista_usuarios.Remove(u1);
         }
 
-        public Boolean eliminarIntegrantesProyecto()
+        public Boolean EliminarIntegrantesProyecto()
         {
             if (lista_usuarios.Any())
             {
@@ -53,12 +55,31 @@ namespace ClassLib
             return false;
         }
 
-        public Boolean leerUsuario(Usuario u1)
+        public Boolean LeerUsuario(Usuario u1)
         {
             return lista_usuarios.ContainsKey(u1);
         }
+        public Boolean AñadirHistoriaUsuario(HistoriasUsuario h1)
+        {
+            if (!lista_historia_usuario.Contains(h1))
+            {
+                lista_historia_usuario.Add(h1);
+                return true;
+            }
 
-        public void modificarDatos(int max, string descripcion)
+            return false;
+        }
+
+        public Boolean RetirarHistoriaUsuario(HistoriasUsuario h1)
+        {
+            return lista_historia_usuario.Remove(h1);
+        }
+
+        public Boolean LeerHistoriaUsuario(HistoriasUsuario h1)
+        {
+            return lista_historia_usuario.Contains(h1);
+        }
+        public void ModificarDatos(int max, string descripcion)
         {
             this.max = max;
             this.descripcion = descripcion;

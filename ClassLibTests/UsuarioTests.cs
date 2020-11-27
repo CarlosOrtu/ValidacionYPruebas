@@ -20,9 +20,9 @@ namespace ClassLib.Tests
             p2 = new Proyecto("proyecto2", 1, "Segundo proyecto");
             p3 = new Proyecto("proyecto3", 3, "Tercer proyecto");
 
-            u1.anadirProyecto(p1);
-            u1.anadirProyecto(p2);
-            u1.anadirProyecto(p3);
+            u1.AnadirProyecto(p1);
+            u1.AnadirProyecto(p2);
+            u1.AnadirProyecto(p3);
         }
 
         [TestCleanup]
@@ -44,27 +44,27 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
-        public void checkEmailTest()
+        public void CheckEmailTest()
         {
-            Assert.IsTrue(u1.checkEmail(u1.Email));
-            Assert.IsFalse(u1_2.checkEmail(u1_2.Email));
+            Assert.IsTrue(u1.CheckEmail(u1.Email));
+            Assert.IsFalse(u1_2.CheckEmail(u1_2.Email));
         }
 
         [TestMethod()]
-        public void checkPhoneTest()
+        public void CheckPhoneTest()
         {
-            Assert.IsTrue(u1.checkPhone());
-            Assert.IsFalse(u2.checkPhone());
+            Assert.IsTrue(u1.CheckPhone());
+            Assert.IsFalse(u2.CheckPhone());
         }
 
         [TestMethod()]
-        public void changePasswordTest()
+        public void ChangePasswordTest()
         {
-            Assert.IsFalse(u1.changePassword("contrasena_1", "contrasena_1"));
-            Assert.IsFalse(u1.changePassword("contrasena2", "contrasena5"));
-            Assert.IsFalse(u1.changePassword("contrasena_1", "contrasena_"));
-            Assert.IsFalse(u1.changePassword("contrasena_1", "contrasena6"));
-            Assert.IsTrue(u1.changePassword("contrasena_1", "contrasena_nueva1"));
+            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena_1"));
+            Assert.IsFalse(u1.ChangePassword("contrasena2", "contrasena5"));
+            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena_"));
+            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena6"));
+            Assert.IsTrue(u1.ChangePassword("contrasena_1", "contrasena_nueva1"));
         }
 
         [TestMethod()]
@@ -77,20 +77,20 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
-        public void checkPasswordTest()
+        public void CheckPasswordTest()
         {
-            Assert.IsTrue(u1.checkPassword("contrasena_1"));
-            Assert.IsFalse(u1.checkPassword("contrasena_2"));
+            Assert.IsTrue(u1.CheckPassword("contrasena_1"));
+            Assert.IsFalse(u1.CheckPassword("contrasena_2"));
         }
 
         [TestMethod()]
-        public void logInTest()
+        public void LogInTest()
         {
-            Assert.IsFalse(u1.logIn("carlos", "contrasena_1"));
-            Assert.IsFalse(u1.logIn("carlos", "contrasena2"));
-            u1.changePassword("contrasena_1", "contrasena_nueva1");
-            Assert.IsFalse(u1.logIn("carlos", "contrasena_1"));
-            Assert.IsTrue(u1.logIn("carlos", "contrasena_nueva1"));
+            Assert.IsFalse(u1.LogIn("carlos", "contrasena_1"));
+            Assert.IsFalse(u1.LogIn("carlos", "contrasena2"));
+            u1.ChangePassword("contrasena_1", "contrasena_nueva1");
+            Assert.IsFalse(u1.LogIn("carlos", "contrasena_1"));
+            Assert.IsTrue(u1.LogIn("carlos", "contrasena_nueva1"));
         }
 
         [TestMethod()]
@@ -115,47 +115,47 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
-        public void anadirProyectoTest()
+        public void AnadirProyectoTest()
         {
-            Assert.IsTrue(u2.anadirProyecto(p1));
-            Assert.IsFalse(u1.anadirProyecto(p1));
-            Assert.IsFalse(u1.anadirProyecto(p2));
+            Assert.IsTrue(u2.AnadirProyecto(p1));
+            Assert.IsFalse(u1.AnadirProyecto(p1));
+            Assert.IsFalse(u1.AnadirProyecto(p2));
         }
 
         [TestMethod()]
-        public void retirarProyectotest()
+        public void RetirarProyectotest()
         {
-            Assert.IsTrue(u1.retirarProyecto(p1));
-            Assert.IsTrue(u1.retirarProyecto(p2));
-            Assert.IsTrue(u1.retirarProyecto(p3));
-            Assert.IsFalse(u1.retirarProyecto(p1));
+            Assert.IsTrue(u1.RetirarProyecto(p1));
+            Assert.IsTrue(u1.RetirarProyecto(p2));
+            Assert.IsTrue(u1.RetirarProyecto(p3));
+            Assert.IsFalse(u1.RetirarProyecto(p1));
         }
 
         [TestMethod()]
-        public void eliminarProyectosTest()
+        public void EliminarProyectosTest()
         {
-            Assert.IsTrue(u1.eliminarProyectos());
-            Assert.IsFalse(u1.eliminarProyectos());
+            Assert.IsTrue(u1.EliminarProyectos());
+            Assert.IsFalse(u1.EliminarProyectos());
         }
 
         [TestMethod()]
-        public void leerProyectosTest()
+        public void LeerProyectosTest()
         {
-            Assert.IsTrue(u1.leerProyecto(p1));
-            Assert.IsTrue(u1.leerProyecto(p2));
-            Assert.IsTrue(u1.leerProyecto(p3));
-            Assert.IsFalse(u2.leerProyecto(p2));
+            Assert.IsTrue(u1.LeerProyecto(p1));
+            Assert.IsTrue(u1.LeerProyecto(p2));
+            Assert.IsTrue(u1.LeerProyecto(p3));
+            Assert.IsFalse(u2.LeerProyecto(p2));
         }
 
         [TestMethod()]
-        public void modificarDatosTest()
+        public void ModificarDatosTest()
         {
-            u1.modificarDatos("carlosOrtunez@gmail.com", "Carlitos", "Ortuñez", "654782310");
+            u1.ModificarDatos("carlosOrtunez@gmail.com", "Carlitos", "Ortuñez", "654782310");
             Assert.AreEqual(u1.Email, "carlosOrtunez@gmail.com");
             Assert.AreEqual(u1.Name, "Carlitos");
             Assert.AreEqual(u1.Surname, "Ortuñez");
             Assert.AreEqual(u1.Phone, "654782310");
-            u2.modificarDatos("guillehotmail.es", "Guilllermo", "Saldaña", "2345");
+            u2.ModificarDatos("guillehotmail.es", "Guilllermo", "Saldaña", "2345");
             Assert.AreNotEqual(u2.Email, "guillehotmail.es"); //No es igual porque el email no cumple los requisitos.
             Assert.AreEqual(u2.Name, "Guilllermo");
             Assert.AreEqual(u2.Surname, "Saldaña");

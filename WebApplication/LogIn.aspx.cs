@@ -32,7 +32,7 @@ namespace WebApplication
         protected void ButtonLogIn_Click(object sender, EventArgs e)
         {
             user = dataBase.leeUsuario(TBUsername.Text);
-            if( user != null && user.checkPassword(TBPassword.Text) && user.Active == true)
+            if( user != null && user.CheckPassword(TBPassword.Text) && user.Active == true)
             {
                 Session["Usuario"] = user;
                 user.LastLogIn = DateTime.Now;

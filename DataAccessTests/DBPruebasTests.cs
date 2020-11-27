@@ -36,7 +36,7 @@ namespace DataAccess.Tests
 
             b1.insertaUsuario(u1);
             b1.insertaProyecto(p1);
-            b1.insertarRol(r1);
+            b1.InsertarRol(r1);
         }
 
         [TestCleanup]
@@ -67,9 +67,9 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void BorraUsuarioTest()
         {
-            p1.anadirUsuarioConRol(u1,r1);
+            p1.AnadirUsuarioConRol(u1,r1);
             Assert.AreEqual(b1.borraUsuario(u1.UserName), u1);
-            Assert.IsFalse(p1.leerUsuario(u1));
+            Assert.IsFalse(p1.LeerUsuario(u1));
             Assert.IsNull(b1.borraUsuario(u2.UserName)); 
         }
 
@@ -102,9 +102,9 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void BorraProyectoTest()
         {
-            u1.anadirProyecto(p1);
+            u1.AnadirProyecto(p1);
             Assert.AreEqual(b1.borraProyecto(p1.Nombre), p1);
-            Assert.IsFalse(u1.leerProyecto(p1));
+            Assert.IsFalse(u1.LeerProyecto(p1));
             Assert.IsNull(b1.borraProyecto(p2.Nombre)); 
         }
 
@@ -116,7 +116,7 @@ namespace DataAccess.Tests
             Proyecto pInexistente = new Proyecto("proyecto2", 1, "Segundo proyecto");
             Assert.IsFalse(b1.modificaDatosProyecto(pMal));
             //Comprobacion si al modificar un proyecto tambien se modifica en la lista de proyectos de la clase usuario
-            u1.anadirProyecto(p1);
+            u1.AnadirProyecto(p1);
             Assert.IsTrue(b1.modificaDatosProyecto(pBien));
             List<Proyecto> lista = u1.Lista_proyectos;
             int indice= lista.IndexOf(pBien);
@@ -128,26 +128,26 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void BorrarRolTest()
         {
-            p1.anadirUsuarioConRol(u1, r1);
-            Assert.AreEqual(b1.borrarRol(r1.Tipo_rol), r1);
+            p1.AnadirUsuarioConRol(u1, r1);
+            Assert.AreEqual(b1.BorrarRol(r1.Tipo_rol), r1);
             foreach (Rol r in p1.Lista_usuarios.Values)
                 Assert.AreNotEqual(r, r1);
-            Assert.IsNull(b1.borrarRol(r2.Tipo_rol));
+            Assert.IsNull(b1.BorrarRol(r2.Tipo_rol));
         }
 
         [TestMethod()]
         public void InsertarRolTest()
         {
-            Assert.IsTrue(b1.insertarRol(r2));
-            Assert.IsFalse(b1.insertarRol(r1));
-            Assert.IsFalse(b1.insertarRol(r1_rep));
+            Assert.IsTrue(b1.InsertarRol(r2));
+            Assert.IsFalse(b1.InsertarRol(r1));
+            Assert.IsFalse(b1.InsertarRol(r1_rep));
         }
 
         [TestMethod()]
         public void LeeRolTest()
         {
-            Assert.AreEqual(b1.leeRol(r1.Tipo_rol), r1);
-            Assert.IsNull(b1.leeRol(r2.Tipo_rol));
+            Assert.AreEqual(b1.LeeRol(r1.Tipo_rol), r1);
+            Assert.IsNull(b1.LeeRol(r2.Tipo_rol));
         }
 
         [TestMethod()]
@@ -156,13 +156,13 @@ namespace DataAccess.Tests
             Rol rMal = new Rol("Administrador Usuarios", 1, "Usuario capaz de administrar todo lo relaccionado con usuarios");
             Rol rBien = new Rol("Administrador Usuarios", 1, "Nueva descripción");
             Rol rInexistente = new Rol("proyecto2", 1, "Segundo proyecto");
-            Assert.IsFalse(b1.modificaDatosRol(rMal));
+            Assert.IsFalse(b1.ModificaDatosRol(rMal));
             //Insertamos un rol en un usuario para comprobar si este se modifica correctamente
-            p1.anadirUsuarioConRol(u1, r1);
-            Assert.IsTrue(b1.modificaDatosRol(rBien));
+            p1.AnadirUsuarioConRol(u1, r1);
+            Assert.IsTrue(b1.ModificaDatosRol(rBien));
             p1.Lista_usuarios.TryGetValue(u1, value: out Rol r);
             Assert.IsTrue(r.Descripcion == rBien.Descripcion);
-            Assert.IsFalse(b1.modificaDatosRol(rInexistente));
+            Assert.IsFalse(b1.ModificaDatosRol(rInexistente));
         }
     }
 }

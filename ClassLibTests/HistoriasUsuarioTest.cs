@@ -63,9 +63,9 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
-        public void modificarDatosTest()
+        public void ModificarDatosTest()
         {
-            h1.modificarDatos("Primera historia modificada", "como hacerlo", "que hacer", "para que hacerlo", p2);
+            h1.ModificarDatos("Primera historia modificada", "como hacerlo", "que hacer", "para que hacerlo", p2);
             Assert.AreEqual(h1.Descripcion, "Primera historia modificada");
             Assert.AreEqual(h1.ParaQue, "para que hacerlo");
             Assert.AreNotEqual(h1.ProyectoAsociado,p1);
