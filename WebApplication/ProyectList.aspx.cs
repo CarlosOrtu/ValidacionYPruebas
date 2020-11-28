@@ -31,7 +31,28 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            int a = 0;
+            foreach(Proyecto p in user.Lista_proyectos)
+            {
+                DropProyectList.Items.Insert(a,p.Nombre);
+                a++;
+            }
+
+            
         }
 
+        protected void ButtonBack_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("Homepage.aspx");
+        }
+
+        protected void ButtonShowData_Click(object sender, EventArgs e)
+        {
+            Proyecto proyect = dataBase.leeProyecto(DropProyectList.SelectedValue);
+            LblName.Text = proyect.Nombre;
+            LblMax.Text = proyect.Max.ToString();
+            LblDescription.Text = proyect.Descripcion;
+        }
     }
 }
