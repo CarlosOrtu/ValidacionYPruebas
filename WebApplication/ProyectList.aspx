@@ -8,7 +8,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 97px;
+            width: 25px;
             text-align: right;
         }
         .auto-style2 {
@@ -23,16 +23,13 @@
             width: 159px;
             text-align: center;
         }
-        .auto-style6 {
-            text-align: right;
-        }
         .auto-style7 {
             text-align: right;
             width: 379px;
             height: 86px;
         }
         .auto-style8 {
-            width: 97px;
+            width: 25px;
             text-align: right;
             height: 86px;
         }
@@ -41,10 +38,6 @@
             text-align: center;
             height: 86px;
             text-decoration: underline;
-        }
-        .auto-style10 {
-            text-align: right;
-            height: 86px;
         }
         .auto-style11 {
             text-align: center;
@@ -59,12 +52,17 @@
         .auto-style13 {
             text-decoration: underline;
         }
-        .auto-style14 {
+        .auto-style16 {
             text-align: center;
             height: 86px;
+            width: 224px;
         }
-        .auto-style15 {
+        .auto-style17 {
             text-align: center;
+            width: 224px;
+        }
+        .auto-style18 {
+            color: #009933;
         }
     </style>
 </head>
@@ -79,7 +77,8 @@
                     <td class="auto-style8"></td>
                     <td class="auto-style9"><strong>Nombre</strong></td>
                     <td class="auto-style11"><strong>Número maximo de integrantes</strong></td>
-                    <td class="auto-style14"><strong><span class="auto-style13">Descripción</span></strong></td>
+                    <td class="auto-style16"><strong><span class="auto-style13">Descripción</span></strong></td>
+                    <td class="auto-style16"><strong><span class="auto-style13">Usuarios</span></strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
@@ -93,8 +92,12 @@
                     <td class="auto-style12">
                         <asp:Label ID="LblMax" runat="server"></asp:Label>
                     </td>
-                    <td class="auto-style15">
+                    <td class="auto-style17">
                         <asp:Label ID="LblDescription" runat="server"></asp:Label>
+                    </td>
+                    <td class="auto-style17">
+                        <asp:DropDownList ID="DropUsers" runat="server" OnSelectedIndexChanged="DropUsers_SelectedIndexChanged" Width="175px">
+                        </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
@@ -104,14 +107,18 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style15">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
+                    <td class="auto-style17"><span class="auto-style18">Rol:</span>
+                        <asp:Label ID="lblRol" runat="server"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style15">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
@@ -120,7 +127,8 @@
                     <td class="auto-style1">&nbsp;</td>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style12">&nbsp;</td>
-                    <td class="auto-style15">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;</td>
                 </tr>
             </table>
         </div>

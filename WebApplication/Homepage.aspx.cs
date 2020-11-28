@@ -28,8 +28,13 @@ namespace WebApplication
             user = (Usuario)Session["Usuario"];
             if (user != null)
             {
-                lblUserName.Text = user.Name;
+                lblUserName.Text = user.UserName;
+                lblEmail.Text = user.Email;
+                lblName.Text = user.Name;
+                lblSurname.Text = user.Surname;
+                lblPhone.Text = user.Phone;
                 lblLastPasswordChange.Text = user.LastChangePassword.ToString();
+                lblLastLogin.Text = user.LastLogIn.ToString();
                 if(user.AdministradorUsuarios || user.AdministradorProyectos)
                 {
                     LblTitleAdmin.Text = "Apartado del Administrador";
@@ -48,9 +53,13 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            Rol r = new Rol("Roleo", 1, "Roleillo");
             Proyecto p1 = new Proyecto("proyecto1", 12, "Primer proyecto");
+            p1.AnadirUsuarioConRol(user, r);
             Proyecto p2 = new Proyecto("proyecto2", 1, "Segundo proyecto");
+            p2.AnadirUsuarioConRol(user, r);
             Proyecto p3 = new Proyecto("proyecto_vacio", 3, "Vacio");
+            p3.AnadirUsuarioConRol(user, r);
             user.AnadirProyecto(p1);
             user.AnadirProyecto(p2);
             user.AnadirProyecto(p3);
