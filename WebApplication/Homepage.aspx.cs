@@ -28,8 +28,13 @@ namespace WebApplication
             user = (Usuario)Session["Usuario"];
             if (user != null)
             {
-                lblUserName.Text = user.Name;
+                lblUserName.Text = user.UserName;
+                lblEmail.Text = user.Email;
+                lblName.Text = user.Name;
+                lblSurname.Text = user.Surname;
+                lblPhone.Text = user.Phone;
                 lblLastPasswordChange.Text = user.LastChangePassword.ToString();
+                lblLastLogin.Text = user.LastLogIn.ToString();
                 if(user.AdministradorUsuarios || user.AdministradorProyectos)
                 {
                     LblTitleAdmin.Text = "Apartado del Administrador";
