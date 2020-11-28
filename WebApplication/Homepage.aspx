@@ -172,7 +172,7 @@
                         </tr>
                         <tr>
                             <td class="auto-style11">
-                                <asp:Button ID="ButtonAdminisProyect" runat="server" Text="Administración de proyectos" Visible="False" Width="288px" />
+                                <asp:Button ID="ButtonAdminisProyect" runat="server" Text="Administración de proyectos" Visible="False" Width="288px" OnClick="ButtonAdminisProyect_Click" />
                             </td>
                         </tr>
                         <tr>

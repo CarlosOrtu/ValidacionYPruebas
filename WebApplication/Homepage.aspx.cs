@@ -94,5 +94,10 @@ namespace WebApplication
         {
             Server.Transfer("UserAdministration.aspx");
         }
+
+        protected void ButtonAdminisProyect_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("ProjectAdministration.aspx");
+        }
     }
 }
