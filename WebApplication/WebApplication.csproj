@@ -69,10 +69,12 @@
   <ItemGroup>
     <Content Include="ChangePassword.aspx" />
     <Content Include="ChangeUserDates.aspx" />
+    <Content Include="DeleteUser.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="NewUser.aspx" />
     <Content Include="ProyectList.aspx" />
+    <Content Include="UserAdministration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +91,13 @@
     </Compile>
     <Compile Include="ChangeUserDates.aspx.designer.cs">
       <DependentUpon>ChangeUserDates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteUser.aspx.cs">
+      <DependentUpon>DeleteUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteUser.aspx.designer.cs">
+      <DependentUpon>DeleteUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Homepage.aspx.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
@@ -118,6 +127,13 @@
     </Compile>
     <Compile Include="ProyectList.aspx.designer.cs">
       <DependentUpon>ProyectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAdministration.aspx.cs">
+      <DependentUpon>UserAdministration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserAdministration.aspx.designer.cs">
+      <DependentUpon>UserAdministration.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

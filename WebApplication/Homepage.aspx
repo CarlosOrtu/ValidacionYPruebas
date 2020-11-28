@@ -99,7 +99,7 @@
                         </caption>
                         <tr>
                             <td class="auto-style11">
-                                <asp:Button ID="ButtonAdminisUser" runat="server" Text="Administración de usuarios" Visible="False" Width="287px" />
+                                <asp:Button ID="ButtonAdminisUser" runat="server" Text="Administración de usuarios" Visible="False" Width="287px" OnClick="ButtonAdminisUser_Click" />
                             </td>
                         </tr>
                         <tr>

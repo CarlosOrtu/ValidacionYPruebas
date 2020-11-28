@@ -81,6 +81,9 @@ namespace WebApplication
             Server.Transfer("ChangeUserDates.aspx");
         }
 
-        
+        protected void ButtonAdminisUser_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("UserAdministration.aspx");
+        }
     }
 }

@@ -9,15 +9,14 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class ProyectList : System.Web.UI.Page
+    public partial class DeleteUser : System.Web.UI.Page
     {
 
-        DBPruebas dataBase;
         Usuario user;
+        DBPruebas dataBase;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Variable de aplicación
             dataBase = (DBPruebas)Application["Base de Datos"];
             if (dataBase == null)
             {
@@ -25,7 +24,6 @@ namespace WebApplication
                 Application["Base de Datos"] = dataBase;
             }
 
-            //Variable de sesión. 
             user = (Usuario)Session["Usuario"];
             if (user == null)
             {
@@ -33,24 +31,25 @@ namespace WebApplication
             }
 
             int a = 0;
-            foreach(Proyecto p in user.Lista_proyectos)
+            foreach(Usuario u in dataBase.TblUsuarios.Values)
             {
-                DropProyectList.Items.Insert(a,p.Nombre);
-                a++;
+                if (!u.UserName.Equals("Administrador"))
+                {
+                    DropDownListUsers.Items.Insert(a, u.UserName);
+                    a++;
+                }
             }
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Homepage.aspx");
+            Server.Transfer("UserAdministration.aspx");
         }
 
-        protected void ButtonShowData_Click(object sender, EventArgs e)
+        protected void ButtonDelete_Click(object sender, EventArgs e)
         {
-            Proyecto proyect = dataBase.leeProyecto(DropProyectList.SelectedValue);
-            LblName.Text = proyect.Nombre;
-            LblMax.Text = proyect.Max.ToString();
-            LblDescription.Text = proyect.Descripcion;
+            dataBase.borraUsuario(DropDownListUsers.SelectedValue);
+            Server.Transfer("DeleteUser.aspx");
         }
     }
 }
