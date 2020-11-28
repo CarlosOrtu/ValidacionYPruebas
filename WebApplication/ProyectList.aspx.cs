@@ -14,7 +14,6 @@ namespace WebApplication
 
         DBPruebas dataBase;
         Usuario user;
-        Proyecto project;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,7 +47,7 @@ namespace WebApplication
 
         protected void ButtonShowData_Click(object sender, EventArgs e)
         {
-            project = dataBase.leeProyecto(DropProyectList.SelectedValue);
+            Proyecto project = dataBase.leeProyecto(DropProyectList.SelectedValue);
             LblName.Text = project.Nombre;
             LblMax.Text = project.Max.ToString();
             LblDescription.Text = project.Descripcion;
@@ -58,10 +57,14 @@ namespace WebApplication
                 DropUsers.Items.Insert(a, u.UserName);
                 a++;
             }
+            DropUsers.Visible = true;
+            ButtonRol.Visible = true;
+            lblRol.Visible = true;
         }
 
-        protected void DropUsers_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ButtonRol_Click(object sender, EventArgs e)
         {
+            Proyecto project = dataBase.leeProyecto(DropProyectList.SelectedValue);
             lblRol.Text = project.Lista_usuarios[dataBase.leeUsuario(DropUsers.SelectedValue)].Tipo_rol;
         }
     }

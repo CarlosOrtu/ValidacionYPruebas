@@ -61,10 +61,7 @@
             text-align: center;
             width: 224px;
         }
-        .auto-style18 {
-            color: #009933;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -96,7 +93,7 @@
                         <asp:Label ID="LblDescription" runat="server"></asp:Label>
                     </td>
                     <td class="auto-style17">
-                        <asp:DropDownList ID="DropUsers" runat="server" OnSelectedIndexChanged="DropUsers_SelectedIndexChanged" Width="175px">
+                        <asp:DropDownList ID="DropUsers" runat="server" Visible="False" Width="179px">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -108,8 +105,8 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style17">&nbsp;</td>
-                    <td class="auto-style17"><span class="auto-style18">Rol:</span>
-                        <asp:Label ID="lblRol" runat="server"></asp:Label>
+                    <td class="auto-style17">
+                        <asp:Button ID="ButtonRol" runat="server" OnClick="ButtonRol_Click" Text="Ver Rol" Visible="False" Width="138px" />
                     </td>
                 </tr>
                 <tr>
@@ -118,7 +115,8 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style17">&nbsp;</td>
-                    <td class="auto-style17">&nbsp;</td>
+                    <td class="auto-style17">&nbsp;<asp:Label ID="lblRol" runat="server" ForeColor="#009933" Visible="False"></asp:Label>
+                    </td>
                 </tr>
                 <tr>
                     <td class="auto-style2">
