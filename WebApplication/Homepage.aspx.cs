@@ -53,9 +53,13 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            Rol r = new Rol("Roleo", 1, "Roleillo");
             Proyecto p1 = new Proyecto("proyecto1", 12, "Primer proyecto");
+            p1.AnadirUsuarioConRol(user, r);
             Proyecto p2 = new Proyecto("proyecto2", 1, "Segundo proyecto");
+            p2.AnadirUsuarioConRol(user, r);
             Proyecto p3 = new Proyecto("proyecto_vacio", 3, "Vacio");
+            p3.AnadirUsuarioConRol(user, r);
             user.AnadirProyecto(p1);
             user.AnadirProyecto(p2);
             user.AnadirProyecto(p3);

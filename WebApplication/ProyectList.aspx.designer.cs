@@ -60,6 +60,15 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Label LblDescription;
 
         /// <summary>
+        /// Control DropUsers.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropUsers;
+
+        /// <summary>
         /// Control ButtonShowData.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace WebApplication
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonShowData;
+
+        /// <summary>
+        /// Control lblRol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRol;
 
         /// <summary>
         /// Control ButtonBack.
