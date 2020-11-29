@@ -104,6 +104,7 @@ namespace WebApplication
                 projectNew.AñadirHistoriaUsuario(aux);
                 dataBase.modificaDatosProyecto(project);
                 dataBase.modificaDatosProyecto(projectNew);
+                Server.Transfer("ChangeHUDAta.aspx");
             }
         }
     }
