@@ -53,6 +53,7 @@ namespace WebApplication
                 Proyecto proyecto = dataBase.leeProyecto(DropProjects.SelectedValue);
                 proyecto.ModificarDatos(Int32.Parse(TextBoxMax.Text), TextBoxDescription.Text);
                 dataBase.modificaDatosProyecto(proyecto);
+                Server.Transfer("ChangeProjectData.aspx");
             }
         }
     }
