@@ -24,5 +24,13 @@ namespace Interfaces
         bool modificaDatosProyecto(Proyecto proyecto);
 
         Proyecto borraProyecto(string nombre);
+
+        Rol BorrarRol(string nombre);
+
+        Boolean InsertarRol(Rol rol);
+
+        Rol LeeRol(string nombre);
+
+        Boolean ModificaDatosRol(Rol rol);
     }
 }

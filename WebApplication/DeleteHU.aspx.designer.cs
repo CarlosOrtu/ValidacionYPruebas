@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ChangeUserDates
+    public partial class DeleteHU
     {
 
         /// <summary>
@@ -33,75 +33,66 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control TextBoxEmail.
+        /// Control DropProjects.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
+        protected global::System.Web.UI.WebControls.DropDownList DropProjects;
 
         /// <summary>
-        /// Control LblNoChangeEmail.
+        /// Control ButtonProject.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoChangeEmail;
+        protected global::System.Web.UI.WebControls.Button ButtonProject;
 
         /// <summary>
-        /// Control TextBoxName.
+        /// Control lblEmpty1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
+        protected global::System.Web.UI.WebControls.Label lblEmpty1;
 
         /// <summary>
-        /// Control TextBoxSurname.
+        /// Control lblInfo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxSurname;
+        protected global::System.Web.UI.WebControls.Label lblInfo;
 
         /// <summary>
-        /// Control TextBoxPhone.
+        /// Control DropHU.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPhone;
+        protected global::System.Web.UI.WebControls.DropDownList DropHU;
 
         /// <summary>
-        /// Control LblNoChangePhone.
+        /// Control ButtonDelete.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoChangePhone;
+        protected global::System.Web.UI.WebControls.Button ButtonDelete;
 
         /// <summary>
-        /// Control ButtonChange.
+        /// Control lblEmpty2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonChange;
-
-        /// <summary>
-        /// Control lblEmpty.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmpty;
+        protected global::System.Web.UI.WebControls.Label lblEmpty2;
     }
 }

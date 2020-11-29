@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ChangeUserDates
+    public partial class NewHU
     {
 
         /// <summary>
@@ -24,6 +24,24 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control TextBoxID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxID;
+
+        /// <summary>
+        /// Control TextBoxDescription.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDescription;
+
+        /// <summary>
         /// Control ButtonBack.
         /// </summary>
         /// <remarks>
@@ -33,67 +51,58 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control TextBoxEmail.
+        /// Control TextBoxComo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxComo;
 
         /// <summary>
-        /// Control LblNoChangeEmail.
+        /// Control TextBoxQue.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoChangeEmail;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxQue;
 
         /// <summary>
-        /// Control TextBoxName.
+        /// Control TextBoxPara.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPara;
 
         /// <summary>
-        /// Control TextBoxSurname.
+        /// Control DropProjects.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxSurname;
+        protected global::System.Web.UI.WebControls.DropDownList DropProjects;
 
         /// <summary>
-        /// Control TextBoxPhone.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPhone;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// Control LblNoChangePhone.
+        /// Control ButtonAcept.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNoChangePhone;
-
-        /// <summary>
-        /// Control ButtonChange.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonChange;
+        protected global::System.Web.UI.WebControls.Button ButtonAcept;
 
         /// <summary>
         /// Control lblEmpty.

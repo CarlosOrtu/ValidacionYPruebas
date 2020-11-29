@@ -85,7 +85,9 @@
                     <td class="auto-style3">
                         <asp:Button ID="ButtonChange" runat="server" OnClick="ButtonChange_Click" Text="Aceptar" Width="107px" />
                     </td>
-                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style4">
+                        <asp:Label ID="lblEmpty" runat="server" Font-Bold="True" ForeColor="#006699"></asp:Label>
+                    </td>
                 </tr>
             </table>
         </div>

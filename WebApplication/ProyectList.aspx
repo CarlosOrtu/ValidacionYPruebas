@@ -123,7 +123,9 @@
                         <asp:Button ID="ButtonBack" runat="server" OnClick="ButtonBack_Click" Text="Volver" Width="145px" />
                     </td>
                     <td class="auto-style1">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Label ID="lblEmpty" runat="server" Font-Bold="True" ForeColor="#006699"></asp:Label>
+                    </td>
                     <td class="auto-style12">&nbsp;</td>
                     <td class="auto-style17">&nbsp;</td>
                     <td class="auto-style17">&nbsp;</td>

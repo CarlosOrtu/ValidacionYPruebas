@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos el desplegable con los usuarios de la base de datos.
             int a = 0;
             foreach(Usuario u in dataBase.TblUsuarios.Values)
             {

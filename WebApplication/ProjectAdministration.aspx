@@ -83,6 +83,7 @@
                     <td class="auto-style7">
                         &nbsp;</td>
                     <td class="auto-style6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="ButtonCreateUser" runat="server" OnClick="ButtonCreateUser_Click" Text="Crear proyecto" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
@@ -91,6 +92,7 @@
                     <td class="auto-style7">
                         &nbsp;</td>
                     <td class="auto-style6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="ButtonChangeDates" runat="server" OnClick="ButtonChangeDates_Click" Text="Modificar datos poryecto" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
@@ -99,6 +101,7 @@
                     <td class="auto-style7">
                         &nbsp;</td>
                     <td class="auto-style6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="ButtonDelete" runat="server" OnClick="ButtonDelete_Click" Text="Borrar proyectos" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
@@ -107,6 +110,7 @@
                     <td class="auto-style7">
                         &nbsp;</td>
                     <td class="auto-style6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="ButtonAddUserProject" runat="server" OnClick="ButtonAddUserProject_Click" Text="Añadir usuario a un proyecto" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
@@ -115,7 +119,17 @@
                     <td class="auto-style7">
                         &nbsp;</td>
                     <td class="auto-style6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="ButtonAdminRoles" runat="server" OnClick="ButtonAdminRoles_Click" Text="Adminsitración de roles" Width="315px" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style6">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="ButtonHU" runat="server" OnClick="ButtonHU_Click" Text="Administración de Historias de Usuario" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -162,7 +176,9 @@
                 <td class="auto-style12">&nbsp;</td>
                 <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
+                <td class="auto-style14">
+                    <asp:Button ID="ButtonRol" runat="server" OnClick="ButtonRol_Click" Text="Ver rol" Visible="False" Width="131px" />
+                </td>
             </tr>
             <tr>
                 <td class="auto-style10">
@@ -171,7 +187,9 @@
                 <td class="auto-style12">&nbsp;</td>
                 <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
+                <td class="auto-style14">
+                    <asp:Label ID="lblRol" runat="server" Font-Bold="True" ForeColor="#00CC00" Visible="False"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style9">&nbsp;</td>

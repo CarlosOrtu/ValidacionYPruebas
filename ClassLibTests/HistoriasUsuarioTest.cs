@@ -38,7 +38,7 @@ namespace ClassLib.Tests
         {
             Assert.IsTrue(h1.ID1.Equals(1) && h1.Descripcion.Equals("Primera historia")
                 && h1.Como.Equals("como1") && h1.Que.Equals("que1") && h1.ParaQue.Equals("paraQue1") && h1.ProyectoAsociado.Equals(p1));
-            Assert.IsFalse(h3.ProyectoAsociado.Equals(p1));
+            Assert.IsFalse(h3.ProyectoAsociado.Equals(p1)); //Falso porque no es su proyecto asociado.
         }
 
         [TestMethod()]

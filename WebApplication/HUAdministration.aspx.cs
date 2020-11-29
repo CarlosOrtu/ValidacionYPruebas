@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class DeleteRol : System.Web.UI.Page
+    public partial class HUAdministration : System.Web.UI.Page
     {
         Usuario user;
         DBPruebas dataBase;
@@ -28,26 +28,26 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
-
-            //Cargamos en el desplegable los roles de la base de datos.
-            int a = 0;
-            foreach(Rol r in dataBase.TblRoles.Values)
-            {
-                DropRol.Items.Insert(a, r.Tipo_rol);
-                a++;
-            }
-
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
         {
-            Server.Transfer("RolAdministration.aspx");
+            Server.Transfer("ProjectAdministration.aspx");
         }
 
         protected void ButtonDelete_Click(object sender, EventArgs e)
         {
-            dataBase.BorrarRol(DropRol.SelectedValue);
-            Server.Transfer("DeleteRol.aspx");
+            Server.Transfer("DeleteHU.aspx");
+        }
+
+        protected void ButtonNewHU_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("NewHU.aspx");
+        }
+
+        protected void ButtonChangeData_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("ChangeHUData.aspx");
         }
     }
 }

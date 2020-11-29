@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos en el desplegable los proyectos de la base de datos.
             int a = 0;
             foreach(Proyecto p in dataBase.TblProyectos.Values)
             {

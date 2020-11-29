@@ -30,9 +30,11 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos en el desplegable todos los usuarios de la base de datos.
             int a = 0;
             foreach(Usuario u in dataBase.TblUsuarios.Values)
             {
+                //Menos el administrador general.
                 if (!u.UserName.Equals("Administrador"))
                 {
                     DropDownListUsers.Items.Insert(a, u.UserName);

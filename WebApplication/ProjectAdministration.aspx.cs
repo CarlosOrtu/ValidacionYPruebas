@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos todos los poryectos de la base de datos, comprobando que en la lista haya el mismo numero de poryectos que número de proyectos hay en la base.
             if(DropProject.Items.Count != dataBase.TblProyectos.Values.Count)
             {
                 int a = 0;
@@ -73,6 +74,7 @@ namespace WebApplication
 
         protected void ButtonShowData_Click(object sender, EventArgs e)
         {
+            //Mostramos los datos del proyecto.
             if (!string.IsNullOrEmpty(DropProject.SelectedValue))
             {
                 Proyecto project = dataBase.leeProyecto(DropProject.SelectedValue);
@@ -86,12 +88,25 @@ namespace WebApplication
                     b++;
                 }
                 DropUsers.Visible = true;
+                ButtonRol.Visible = true;
+                lblRol.Visible = true;
             }
             else
             {
                 lblEmpty.Text = "No se puede mostrar datos porque el campo está vacio";
             }
                 
+        }
+
+        protected void ButtonRol_Click(object sender, EventArgs e)
+        {
+            Proyecto project = dataBase.leeProyecto(DropProject.SelectedValue);
+            lblRol.Text = project.Lista_usuarios[dataBase.leeUsuario(DropUsers.SelectedValue)].Tipo_rol;
+        }
+
+        protected void ButtonHU_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("HUAdministration.aspx");
         }
     }
 }

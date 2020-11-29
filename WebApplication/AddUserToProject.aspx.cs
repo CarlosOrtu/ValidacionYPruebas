@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx", false);
             }
 
+            //Cargamos en el desplegable los proyectos de la base de datos.
             int a = 0;
             foreach (string project in dataBase.TblProyectos.Keys)
             {
@@ -36,6 +37,7 @@ namespace WebApplication
                 a++;
             }
 
+            //Cargamos en el desplegable los usarios de la base de datos.
             int b = 0;
             foreach(string user in dataBase.TblUsuarios.Keys)
             {
@@ -43,6 +45,7 @@ namespace WebApplication
                 b++;
             }
 
+            //Cargamos en el desplegable los roles de la base de datos.
             int c = 0;
             foreach(string rol in dataBase.TblRoles.Keys)
             {
@@ -60,6 +63,7 @@ namespace WebApplication
 
         protected void ButtonAcept_Click(object sender, EventArgs e)
         {
+            //Si seleccionamos todos los campos, y el usuario no tiene ya ese proyecto añadimos un proyecto con un rol a un usuario.
             if(string.IsNullOrEmpty(DropUsers.SelectedValue) || string.IsNullOrEmpty(DropProjects.SelectedValue) || string.IsNullOrEmpty(DropRol.SelectedValue))
             {
                 lblEmpty.Text = "No puede haber ningun campo vacio";
