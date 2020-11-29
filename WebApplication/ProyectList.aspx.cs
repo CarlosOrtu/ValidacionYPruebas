@@ -32,12 +32,16 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
-            int a = 0;
-            foreach (Proyecto p in user.Lista_proyectos)
+            if (DropProyectList.Items.Count != dataBase.TblProyectos.Values.Count)
             {
-                DropProyectList.Items.Insert(a, p.Nombre);
-                a++;
+                int a = 0;
+                foreach (Proyecto p in user.Lista_proyectos)
+                {
+                    DropProyectList.Items.Insert(a, p.Nombre);
+                    a++;
+                }
             }
+                
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)

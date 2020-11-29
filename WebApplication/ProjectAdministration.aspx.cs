@@ -28,6 +28,17 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            if(DropProject.Items.Count != dataBase.TblProyectos.Values.Count)
+            {
+                int a = 0;
+                foreach (Proyecto p in dataBase.TblProyectos.Values)
+                {
+                    DropProject.Items.Insert(a, p.Nombre);
+                    a++;
+                }
+            }
+            
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
@@ -58,6 +69,29 @@ namespace WebApplication
         protected void ButtonChangeDates_Click(object sender, EventArgs e)
         {
             Server.Transfer("ChangeProjectData.aspx");
+        }
+
+        protected void ButtonShowData_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(DropProject.SelectedValue))
+            {
+                Proyecto project = dataBase.leeProyecto(DropProject.SelectedValue);
+                lblName.Text = project.Nombre;
+                lblMax.Text = project.Max.ToString();
+                lblDescription.Text = project.Descripcion;
+                int b = 0;
+                foreach (Usuario u in project.Lista_usuarios.Keys)
+                {
+                    DropUsers.Items.Insert(b, u.UserName);
+                    b++;
+                }
+                DropUsers.Visible = true;
+            }
+            else
+            {
+                lblEmpty.Text = "No se puede mostrar datos porque el campo está vacio";
+            }
+                
         }
     }
 }
