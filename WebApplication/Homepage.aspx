@@ -177,8 +177,7 @@
                         </tr>
                         <tr>
                             <td class="auto-style11">
-                                <asp:Button ID="ButtonAdminisRoles" runat="server" OnClick="ButtonAdminisRoles_Click" Text="Administración de roles" Width="290px" Visible="False" />
-                            </td>
+                                &nbsp;</td>
                         </tr>
                     </table>
                 </td>

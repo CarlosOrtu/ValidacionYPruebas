@@ -49,5 +49,10 @@ namespace WebApplication
         {
             Server.Transfer("AddUserToProject.aspx");
         }
+
+        protected void ButtonAdminRoles_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("RolAdministration.aspx");
+        }
     }
 }
