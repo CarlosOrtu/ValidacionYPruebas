@@ -40,6 +40,8 @@ namespace WebApplication
         protected void ButtonAcept_Click(object sender, EventArgs e)
         {
             Usuario userNew = dataBase.leeUsuario(DropUsers.SelectedValue);
+
+            //Comprobar los campos seleecionados
             if(CheckBoxProject.Checked == true)
             {
                 userNew.AdministradorProyectos = true;
@@ -48,8 +50,48 @@ namespace WebApplication
             {
                 userNew.AdministradorUsuarios = true;
             }
+            if(CheckBoxNOProject.Checked == true)
+            {
+                userNew.AdministradorProyectos = false;
+            }
+            if(CheckBoxNOUser.Checked == true)
+            {
+                userNew.AdministradorUsuarios = false;
+            }
 
             dataBase.insertaUsuario(userNew);
+        }
+
+        protected void ButtonBack_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("UserAdministration.aspx");
+        }
+
+        protected void ButtonShow_Click(object sender, EventArgs e)
+        {
+            Usuario userNew = dataBase.leeUsuario(DropUsers.SelectedValue);
+
+            //Hacemos visible el botón de aplicar permisos.
+            ButtonAcept.Visible = true ;
+
+            //Hacer visible solo los campos necesarios, si no es admin campos que permitan ahcer admin y viceversa.
+            if (userNew.AdministradorProyectos == true)
+            {
+                CheckBoxNOProject.Visible = true;
+            }
+            else
+            {
+                CheckBoxProject.Visible = true;
+            }
+            if (userNew.AdministradorUsuarios == true)
+            {
+                CheckBoxNOUser.Visible = true;
+            }
+            else
+            {
+                CheckBoxUser.Visible = true;
+            }
+
         }
     }
 }

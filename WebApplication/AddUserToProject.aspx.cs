@@ -26,7 +26,7 @@ namespace WebApplication
             user = (Usuario)Session["Usuario"];
             if (user == null)
             {
-                Server.Transfer("LogIn.aspx");
+                Server.Transfer("LogIn.aspx", false);
             }
 
             int a = 0;
@@ -60,20 +60,29 @@ namespace WebApplication
 
         protected void ButtonAcept_Click(object sender, EventArgs e)
         {
-            Proyecto project = dataBase.leeProyecto(DropProjects.SelectedValue);
-            Usuario userNew = dataBase.leeUsuario(DropUsers.SelectedValue);
-            Rol rol = dataBase.LeeRol(DropRol.SelectedValue);
-            if (!project.LeerUsuario(userNew))
+            if(string.IsNullOrEmpty(DropUsers.SelectedValue) || string.IsNullOrEmpty(DropProjects.SelectedValue) || string.IsNullOrEmpty(DropRol.SelectedValue))
             {
-                project.AnadirUsuarioConRol(userNew, rol);
-                userNew.AnadirProyecto(project);
-                dataBase.insertaProyecto(project);
-                Server.Transfer("AddUserToProject.aspx");
+                lblEmpty.Text = "No puede haber ningun campo vacio";
             }
             else
             {
-                lblError.Text = "El proyecto ya contiene a este usuario";
-            }   
+                Proyecto project = dataBase.leeProyecto(DropProjects.SelectedValue);
+                Usuario userNew = dataBase.leeUsuario(DropUsers.SelectedValue);
+                Rol rol = dataBase.LeeRol(DropRol.SelectedValue);
+            
+                if (!project.LeerUsuario(userNew))
+                {
+                    project.AnadirUsuarioConRol(userNew, rol);
+                    userNew.AnadirProyecto(project);
+                    dataBase.insertaProyecto(project);
+                    Server.Transfer("AddUserToProject.aspx");
+                }
+                else
+                {
+                    lblError.Text = "El proyecto ya contiene a este usuario";
+                }   
+            }
+
         }
     }
 }

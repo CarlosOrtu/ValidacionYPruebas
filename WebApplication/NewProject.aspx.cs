@@ -45,9 +45,18 @@ namespace WebApplication
             }
             else
             {
-                Proyecto project = new Proyecto(TextBoxName.Text, Int32.Parse(TextBoxMax.Text), TextBoxDescription.Text);
-                dataBase.insertaProyecto(project);
-                Server.Transfer("NewProject.aspx");
+                if(dataBase.leeProyecto(TextBoxName.Text) == null)
+                {
+                    Proyecto project = new Proyecto(TextBoxName.Text, Int32.Parse(TextBoxMax.Text), TextBoxDescription.Text);
+                    dataBase.insertaProyecto(project);
+                    Server.Transfer("NewProject.aspx");
+                }
+                else
+                {
+                    lblEmpty.Text = "El proyecto ya existe";
+                }
+                    
+
             }
         }
     }

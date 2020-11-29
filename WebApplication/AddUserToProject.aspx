@@ -81,7 +81,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style5"></td>
-                    <td class="auto-style6"></td>
+                    <td class="auto-style6">
+                        <asp:Label ID="lblEmpty" runat="server" Font-Bold="True" ForeColor="#006699"></asp:Label>
+                    </td>
                     <td class="auto-style7"></td>
                 </tr>
                 <tr>

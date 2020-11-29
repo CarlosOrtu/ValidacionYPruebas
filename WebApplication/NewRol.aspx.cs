@@ -40,9 +40,17 @@ namespace WebApplication
             }
             else
             {
-                Rol rol = new Rol(TextBoxName.Text, Int32.Parse(TextBoxID.Text), TextBoxDescription.Text);
-                dataBase.InsertarRol(rol);
-                Server.Transfer("NewRol.aspx");
+                if(dataBase.LeeRol(TextBoxName.Text) == null)
+                {
+                    Rol rol = new Rol(TextBoxName.Text, Int32.Parse(TextBoxID.Text), TextBoxDescription.Text);
+                    dataBase.InsertarRol(rol);
+                    Server.Transfer("NewRol.aspx");
+                }
+                else
+                {
+                    LabelError.Text = "El rol ya existe";
+                }
+              
             }
         }
 
