@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WebApplicationTest
 {
     [TestClass]
-    public class PruebaUsuarioIncorrecto
+    public class CrearNuevoUsuarioIncorrecto
     {
         private static IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -52,18 +52,32 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
-        public void ThePruebaUsuarioIncorrectoTest()
+        public void TheCrearNuevoUsuarioIncorrectoTest()
         {
-            driver.Navigate().GoToUrl("https://localhost:44390/LogIn.aspx");
-            driver.FindElement(By.Id("TBUsername")).Click();
-            driver.FindElement(By.Id("TBUsername")).Clear();
-            driver.FindElement(By.Id("TBUsername")).SendKeys("Carlos");
-            driver.FindElement(By.Id("TBPassword")).Clear();
-            driver.FindElement(By.Id("TBPassword")).SendKeys("pruebacontra");
-            driver.FindElement(By.Id("ButtonLogIn")).Click();
+            driver.Navigate().GoToUrl("https://localhost:44390/Homepage.aspx");
+            driver.FindElement(By.Id("ButtonNewUser")).Click();
+            driver.FindElement(By.Id("NewTBUserName")).Click();
+            driver.FindElement(By.Id("NewTBUserName")).Clear();
+            driver.FindElement(By.Id("NewTBUserName")).SendKeys("Carlos");
+            driver.FindElement(By.Id("NewTBPassword")).Clear();
+            driver.FindElement(By.Id("NewTBPassword")).SendKeys("contraseñamal");
+            driver.FindElement(By.Id("NewTBRepeatPassword")).Click();
+            driver.FindElement(By.Id("NewTBRepeatPassword")).Clear();
+            driver.FindElement(By.Id("NewTBRepeatPassword")).SendKeys("contraseñamal");
+            driver.FindElement(By.Id("NewTBEmail")).Click();
+            driver.FindElement(By.Id("NewTBEmail")).Clear();
+            driver.FindElement(By.Id("NewTBEmail")).SendKeys("cor1001@alu.ubu.es");
+            driver.FindElement(By.Id("NewTBName")).Click();
+            driver.FindElement(By.Id("NewTBName")).Clear();
+            driver.FindElement(By.Id("NewTBName")).SendKeys("Carlos");
+            driver.FindElement(By.Id("NewTBSurname")).Clear();
+            driver.FindElement(By.Id("NewTBSurname")).SendKeys("Ortunez");
+            driver.FindElement(By.Id("NewTBPhone")).Clear();
+            driver.FindElement(By.Id("NewTBPhone")).SendKeys("717117171");
+            driver.FindElement(By.Id("ButtonCreateNewUser")).Click();
             try
             {
-                Assert.AreEqual("Usuario y/o contraseña erroneo", driver.FindElement(By.Id("lblError")).Text);
+                Assert.AreEqual("La contraseña debe tener al menos 7 caracteres, un número y un guión bajo '_'", driver.FindElement(By.Id("ErrorPassword")).Text);
             }
             catch (Exception e)
             {
