@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace WebApplicationTest
 {
     [TestClass]
-    public class PruebaUsuarioIncorrecto
+    public class PruebaUsuarioCorrectoYCerrarSesion
     {
         private static IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -52,18 +52,27 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
-        public void ThePruebaUsuarioIncorrectoTest()
+        public void ThePruebaUsuarioCorrectoYCerrarSesionTest()
         {
             driver.Navigate().GoToUrl("https://localhost:44390/LogIn.aspx");
             driver.FindElement(By.Id("TBUsername")).Click();
             driver.FindElement(By.Id("TBUsername")).Clear();
-            driver.FindElement(By.Id("TBUsername")).SendKeys("Carlos");
+            driver.FindElement(By.Id("TBUsername")).SendKeys("Administrador");
             driver.FindElement(By.Id("TBPassword")).Clear();
-            driver.FindElement(By.Id("TBPassword")).SendKeys("pruebacontra");
+            driver.FindElement(By.Id("TBPassword")).SendKeys("password_1");
             driver.FindElement(By.Id("ButtonLogIn")).Click();
             try
             {
-                Assert.AreEqual("Usuario y/o contraseña erroneo", driver.FindElement(By.Id("lblError")).Text);
+                Assert.AreEqual("Administrador", driver.FindElement(By.Id("lblUserName")).Text);
+            }
+            catch (Exception e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            driver.FindElement(By.Id("ButtonLogOut")).Click();
+            try
+            {
+                Assert.AreEqual("Inicio de sesión", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/table/caption/strong")).Text);
             }
             catch (Exception e)
             {
