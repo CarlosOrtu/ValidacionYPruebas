@@ -58,8 +58,13 @@
   <ItemGroup>
     <Compile Include="PruebaUsuarioIncorrecto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PruebaUsuarioCorrectoYCerrarSesion.cs" />
     <Compile Include="CrearNuevoUsuarioIncorrecto.cs" />
+    <Compile Include="CrearNuevoUsuarioCorrecto.cs" />
+    <Compile Include="ProbarCambioDeContrasena.cs" />
+    <Compile Include="ModificarPermisosUsuario.cs" />
+    <Compile Include="PruebaAdministrarProyectos.cs" />
+    <Compile Include="PruebaBorrarUsuario.cs" />
+    <Compile Include="PruebaModificarDatos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

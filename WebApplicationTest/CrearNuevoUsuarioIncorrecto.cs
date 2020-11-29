@@ -9,6 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebApplicationTest
 {
+    //Creamos un usuario equivocandonos en la contraseña
     [TestClass]
     public class CrearNuevoUsuarioIncorrecto
     {
@@ -54,11 +55,11 @@ namespace WebApplicationTest
         [TestMethod]
         public void TheCrearNuevoUsuarioIncorrectoTest()
         {
-            driver.Navigate().GoToUrl("https://localhost:44390/Homepage.aspx");
+            driver.Navigate().GoToUrl("https://localhost:44390/LogIn.aspx");
             driver.FindElement(By.Id("ButtonNewUser")).Click();
             driver.FindElement(By.Id("NewTBUserName")).Click();
             driver.FindElement(By.Id("NewTBUserName")).Clear();
-            driver.FindElement(By.Id("NewTBUserName")).SendKeys("Carlos");
+            driver.FindElement(By.Id("NewTBUserName")).SendKeys("CarlosYo");
             driver.FindElement(By.Id("NewTBPassword")).Clear();
             driver.FindElement(By.Id("NewTBPassword")).SendKeys("contraseñamal");
             driver.FindElement(By.Id("NewTBRepeatPassword")).Click();
