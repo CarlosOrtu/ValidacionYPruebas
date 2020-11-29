@@ -158,7 +158,6 @@ namespace ClassLib
             return userName.CompareTo(obj);
         }
 
-        //Metodos lista proyectos
         public Boolean AnadirProyecto(Proyecto p1)
         {
             if (!lista_proyectos.Any() || !lista_proyectos.Contains(p1))

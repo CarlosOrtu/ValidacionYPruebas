@@ -91,15 +91,15 @@ namespace ClassLib.Tests
         public void RetirarHistoriaUsuarioTest()
         {
             Assert.IsTrue(p1.RetirarHistoriaUsuario(h1));
-            Assert.IsFalse(p1.RetirarHistoriaUsuario(h1));
-            Assert.IsFalse(p2.RetirarHistoriaUsuario(h1));
+            Assert.IsFalse(p1.RetirarHistoriaUsuario(h1)); //Falso porque ya se ha retirado.
+            Assert.IsFalse(p2.RetirarHistoriaUsuario(h1)); //Falso porque no existe esa historia en ese proyecto.
         }
 
         [TestMethod]
         public void LeerHistoriaUsuarioTest()
         {
             Assert.IsTrue(p1.LeerHistoriaUsuario(h1));
-            Assert.IsFalse(p2.LeerHistoriaUsuario(h1));
+            Assert.IsFalse(p2.LeerHistoriaUsuario(h1)); //Falso porque no existe esa historia en ese proyecto. 
         }
 
         [TestMethod]

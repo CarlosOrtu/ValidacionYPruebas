@@ -60,10 +60,10 @@ namespace ClassLib.Tests
         [TestMethod()]
         public void ChangePasswordTest()
         {
-            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena_1"));
-            Assert.IsFalse(u1.ChangePassword("contrasena2", "contrasena5"));
-            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena_"));
-            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena6"));
+            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena_1")); //Falso porque la contraseña antigua y la nueva no pueden ser iguales.
+            Assert.IsFalse(u1.ChangePassword("contrasena2", "contrasena5")); //Falso porque no cumplen las normas sintáctivcas de la contraseña.
+            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena_")); //Falso porque la contraseña nueva no es sintácticamente correcta.
+            Assert.IsFalse(u1.ChangePassword("contrasena_1", "contrasena6")); //Falso porque la contraseña nueva no es sintácticamente correcta.
             Assert.IsTrue(u1.ChangePassword("contrasena_1", "contrasena_nueva1"));
         }
 
@@ -118,8 +118,8 @@ namespace ClassLib.Tests
         public void AnadirProyectoTest()
         {
             Assert.IsTrue(u2.AnadirProyecto(p1));
-            Assert.IsFalse(u1.AnadirProyecto(p1));
-            Assert.IsFalse(u1.AnadirProyecto(p2));
+            Assert.IsFalse(u1.AnadirProyecto(p1)); //Falso porque ese proyecto ya está en la lista del usuario.
+            Assert.IsFalse(u1.AnadirProyecto(p2)); //Falso porque ese proyecto ya está en la lista del usuario.
         }
 
         [TestMethod()]
@@ -128,14 +128,14 @@ namespace ClassLib.Tests
             Assert.IsTrue(u1.RetirarProyecto(p1));
             Assert.IsTrue(u1.RetirarProyecto(p2));
             Assert.IsTrue(u1.RetirarProyecto(p3));
-            Assert.IsFalse(u1.RetirarProyecto(p1));
+            Assert.IsFalse(u1.RetirarProyecto(p1)); //Falso porque ya se ha retirado.
         }
 
         [TestMethod()]
         public void EliminarProyectosTest()
         {
             Assert.IsTrue(u1.EliminarProyectos());
-            Assert.IsFalse(u1.EliminarProyectos());
+            Assert.IsFalse(u1.EliminarProyectos()); //Falso porque ya se han eliminado todos los proyectos.
         }
 
         [TestMethod()]
@@ -144,7 +144,7 @@ namespace ClassLib.Tests
             Assert.IsTrue(u1.LeerProyecto(p1));
             Assert.IsTrue(u1.LeerProyecto(p2));
             Assert.IsTrue(u1.LeerProyecto(p3));
-            Assert.IsFalse(u2.LeerProyecto(p2));
+            Assert.IsFalse(u2.LeerProyecto(p2)); //Falso porque no posee ese proyecto.
         }
 
         [TestMethod()]
