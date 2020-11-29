@@ -28,6 +28,13 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            int a = 0;
+            foreach(Usuario u in dataBase.TblUsuarios.Values)
+            {
+                DropUsers.Items.Insert(a, u.UserName);
+                a++;
+            }
         }
 
         protected void ButtonDeleteUsers_Click(object sender, EventArgs e)

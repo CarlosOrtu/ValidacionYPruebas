@@ -78,6 +78,7 @@
     <Content Include="DeleteUser.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="Images\Screenshot_1.png" />
+    <Content Include="Images\Usuario.png" />
     <Content Include="LogIn.aspx" />
     <Content Include="NewProject.aspx" />
     <Content Include="NewRol.aspx" />
