@@ -9,6 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebApplicationTest
 {
+    //Creamos un usuario y modificamos todos sus datos, posteriormente comprobamos que los datos se han modificado correctamente
     [TestClass]
     public class PruebaModificarDatos
     {
