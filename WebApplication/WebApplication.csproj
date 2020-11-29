@@ -68,12 +68,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserToProject.aspx" />
+    <Content Include="Captcha.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ChangeUserDates.aspx" />
     <Content Include="DeleteProject.aspx" />
     <Content Include="DeleteRol.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="Homepage.aspx" />
+    <Content Include="Images\captcha.png" />
+    <Content Include="Images\Screenshot_1.png" />
     <Content Include="LogIn.aspx" />
     <Content Include="NewProject.aspx" />
     <Content Include="NewRol.aspx" />
@@ -92,6 +95,13 @@
     </Compile>
     <Compile Include="AddUserToProject.aspx.designer.cs">
       <DependentUpon>AddUserToProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Captcha.aspx.cs">
+      <DependentUpon>Captcha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Captcha.aspx.designer.cs">
+      <DependentUpon>Captcha.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>

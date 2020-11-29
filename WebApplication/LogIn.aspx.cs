@@ -38,7 +38,7 @@ namespace WebApplication
                 {
                     Session["Usuario"] = user;
                     user.LastLogIn = DateTime.Now;
-                    Server.Transfer("Homepage.aspx");
+                    Server.Transfer("Captcha.aspx");
                 }
                 else
                 {
