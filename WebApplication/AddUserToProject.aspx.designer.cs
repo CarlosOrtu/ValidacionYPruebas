@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ProjectAdministration
+    public partial class AddUserToProject
     {
 
         /// <summary>
@@ -33,30 +33,48 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control ButtonCreateUser.
+        /// Control DropProjects.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateUser;
+        protected global::System.Web.UI.WebControls.DropDownList DropProjects;
 
         /// <summary>
-        /// Control ButtonDelete.
+        /// Control DropUsers.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDelete;
+        protected global::System.Web.UI.WebControls.DropDownList DropUsers;
 
         /// <summary>
-        /// Control ButtonAddUserProject.
+        /// Control DropRol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUserProject;
+        protected global::System.Web.UI.WebControls.DropDownList DropRol;
+
+        /// <summary>
+        /// Control ButtonAcept.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAcept;
+
+        /// <summary>
+        /// Control lblError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

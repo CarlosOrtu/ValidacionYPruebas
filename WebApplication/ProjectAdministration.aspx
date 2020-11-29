@@ -14,15 +14,13 @@
         .auto-style2 {
             text-align: right;
         }
-        .auto-style3 {
-            width: 1002px;
-        }
-        .auto-style4 {
-            width: 1002px;
+        .auto-style6 {
+            width: 1146px;
             text-align: center;
         }
-        .auto-style5 {
-            width: 146px;
+        .auto-style7 {
+            width: 162px;
+            text-align: center;
         }
     </style>
 </head>
@@ -33,22 +31,34 @@
                 <caption class="auto-style1">
                     <strong>Adminsitración de proyectos</strong></caption>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
                     <td class="auto-style2">
                         <asp:Button ID="ButtonBack" runat="server" OnClick="ButtonBack_Click" Text="Volver" Width="162px" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">
-                        <asp:Button ID="ButtonDelete" runat="server" OnClick="ButtonDelete_Click" Text="Borrar proyectos" Width="268px" />
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:Button ID="ButtonCreateUser" runat="server" OnClick="ButtonCreateUser_Click" Text="Crear proyecto" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style3">&nbsp;</td>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:Button ID="ButtonDelete" runat="server" OnClick="ButtonDelete_Click" Text="Borrar proyectos" Width="315px" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:Button ID="ButtonAddUserProject" runat="server" OnClick="ButtonAddUserProject_Click" Text="Añadir usuario a un proyecto" Width="315px" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

@@ -91,7 +91,7 @@
                 <td class="auto-style8">
                     &nbsp;</td>
                 <td class="auto-style1">
-                    <asp:Button ID="ButtonLogOut" runat="server" OnClick="ButtonLogOut_Click" Text="Cerrar sesión" Width="164px" />
+                    <asp:Button ID="ButtonLogOut" runat="server" OnClick="ButtonLogOut_Click" Text="Cerrar sesión" Width="165px" />
                 </td>
             </tr>
             <tr>
@@ -167,16 +167,18 @@
                         </caption>
                         <tr>
                             <td class="auto-style11">
-                                <asp:Button ID="ButtonAdminisUser" runat="server" Text="Administración de usuarios" Visible="False" Width="287px" OnClick="ButtonAdminisUser_Click" />
+                                <asp:Button ID="ButtonAdminisUser" runat="server" Text="Administración de usuarios" Visible="False" Width="290px" OnClick="ButtonAdminisUser_Click" />
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style11">
-                                <asp:Button ID="ButtonAdminisProyect" runat="server" Text="Administración de proyectos" Visible="False" Width="288px" OnClick="ButtonAdminisProyect_Click" />
+                                <asp:Button ID="ButtonAdminisProyect" runat="server" Text="Administración de proyectos" Visible="False" Width="290px" OnClick="ButtonAdminisProyect_Click" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style11">&nbsp;</td>
+                            <td class="auto-style11">
+                                <asp:Button ID="ButtonAdminisRoles" runat="server" OnClick="ButtonAdminisRoles_Click" Text="Administración de roles" Width="290px" Visible="False" />
+                            </td>
                         </tr>
                     </table>
                 </td>

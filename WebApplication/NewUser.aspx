@@ -10,6 +10,7 @@
         .auto-style1 {
             text-decoration: underline;
             height: 27px;
+            font-size: large;
         }
         .auto-style2 {
             width: 367px;

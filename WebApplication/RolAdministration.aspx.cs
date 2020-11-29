@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class ProjectAdministration : System.Web.UI.Page
+    public partial class RolAdministration : System.Web.UI.Page
     {
         Usuario user;
         DBPruebas dataBase;
@@ -35,19 +35,14 @@ namespace WebApplication
             Server.Transfer("Homepage.aspx");
         }
 
-        protected void ButtonDelete_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            Server.Transfer("DeleteProject.aspx");
+            Server.Transfer("NewRol.aspx");
         }
 
-        protected void ButtonCreateUser_Click(object sender, EventArgs e)
+        protected void Button2_Click(object sender, EventArgs e)
         {
-            Server.Transfer("NewProject.aspx");
-        }
-
-        protected void ButtonAddUserProject_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("AddUserToProject.aspx");
+            Server.Transfer("DeleteRol.aspx");
         }
     }
 }

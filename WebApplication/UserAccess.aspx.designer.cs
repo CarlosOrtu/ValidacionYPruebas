@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ProjectAdministration
+    public partial class UserAccess
     {
 
         /// <summary>
@@ -24,39 +24,39 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control ButtonBack.
+        /// Control DropUsers.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBack;
+        protected global::System.Web.UI.WebControls.DropDownList DropUsers;
 
         /// <summary>
-        /// Control ButtonCreateUser.
+        /// Control CheckBoxUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateUser;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxUser;
 
         /// <summary>
-        /// Control ButtonDelete.
+        /// Control CheckBoxProject.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDelete;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxProject;
 
         /// <summary>
-        /// Control ButtonAddUserProject.
+        /// Control ButtonAcept.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUserProject;
+        protected global::System.Web.UI.WebControls.Button ButtonAcept;
     }
 }

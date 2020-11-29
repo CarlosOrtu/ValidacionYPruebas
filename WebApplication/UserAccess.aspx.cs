@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class ProjectAdministration : System.Web.UI.Page
+    public partial class UserAccess : System.Web.UI.Page
     {
         Usuario user;
         DBPruebas dataBase;
@@ -28,26 +28,28 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            int a = 0;
+            foreach(Usuario u in dataBase.TblUsuarios.Values)
+            {
+                DropUsers.Items.Insert(a, u.UserName);
+                a++;
+            }
         }
 
-        protected void ButtonBack_Click(object sender, EventArgs e)
+        protected void ButtonAcept_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Homepage.aspx");
-        }
+            Usuario userNew = dataBase.leeUsuario(DropUsers.SelectedValue);
+            if(CheckBoxProject.Checked == true)
+            {
+                userNew.AdministradorProyectos = true;
+            }
+            if(CheckBoxUser.Checked == true)
+            {
+                userNew.AdministradorUsuarios = true;
+            }
 
-        protected void ButtonDelete_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("DeleteProject.aspx");
-        }
-
-        protected void ButtonCreateUser_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("NewProject.aspx");
-        }
-
-        protected void ButtonAddUserProject_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("AddUserToProject.aspx");
+            dataBase.insertaUsuario(userNew);
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class UserAdministration : System.Web.UI.Page
+    public partial class NewProject : System.Web.UI.Page
     {
         Usuario user;
         DBPruebas dataBase;
@@ -28,21 +28,27 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
-        }
 
-        protected void ButtonDeleteUsers_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("DeleteUser.aspx");
+            lblEmpty.Text = "";
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Homepage.aspx");
+            Server.Transfer("ProjectAdministration.aspx");
         }
 
-        protected void ButtonUserAccess_Click(object sender, EventArgs e)
+        protected void ButtonCreateNewProject_Click(object sender, EventArgs e)
         {
-            Server.Transfer("UserAccess.aspx");
+            if(string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TextBoxMax.Text) || string.IsNullOrEmpty(TextBoxDescription.Text))
+            {
+                lblEmpty.Text = "No puede haber campos nulos";
+            }
+            else
+            {
+                Proyecto project = new Proyecto(TextBoxName.Text, Int32.Parse(TextBoxMax.Text), TextBoxDescription.Text);
+                dataBase.insertaProyecto(project);
+                Server.Transfer("NewProject.aspx");
+            }
         }
     }
 }

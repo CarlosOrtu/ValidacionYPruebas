@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class ProjectAdministration : System.Web.UI.Page
+    public partial class NewRol : System.Web.UI.Page
     {
         Usuario user;
         DBPruebas dataBase;
@@ -28,26 +28,27 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            LabelError.Text = "";
+        }
+
+        protected void ButtonAcept_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TextBoxID.Text) || string.IsNullOrEmpty(TextBoxDescription.Text))
+            {
+                LabelError.Text = "No puede haber ningun campo nulo";
+            }
+            else
+            {
+                Rol rol = new Rol(TextBoxName.Text, Int32.Parse(TextBoxID.Text), TextBoxDescription.Text);
+                dataBase.InsertarRol(rol);
+                Server.Transfer("NewRol.aspx");
+            }
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Homepage.aspx");
-        }
-
-        protected void ButtonDelete_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("DeleteProject.aspx");
-        }
-
-        protected void ButtonCreateUser_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("NewProject.aspx");
-        }
-
-        protected void ButtonAddUserProject_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("AddUserToProject.aspx");
+            Server.Transfer("RolAdministration.aspx");
         }
     }
 }

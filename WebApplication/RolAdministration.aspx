@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserAdministration.aspx.cs" Inherits="WebApplication.UserAdministration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RolAdministration.aspx.cs" Inherits="WebApplication.RolAdministration" %>
 
 <!DOCTYPE html>
 
@@ -12,14 +12,23 @@
             text-decoration: underline;
         }
         .auto-style2 {
-            width: 1173px;
+            width: 1009px;
             text-align: center;
         }
         .auto-style3 {
             text-align: right;
+            height: 33px;
         }
         .auto-style4 {
             width: 237px;
+        }
+        .auto-style5 {
+            width: 237px;
+            height: 33px;
+        }
+        .auto-style6 {
+            width: 1009px;
+            height: 33px;
         }
     </style>
 </head>
@@ -28,25 +37,25 @@
         <div>
             <table style="width:100%;">
                 <caption class="auto-style1">
-                    <strong>Administración de usuarios</strong></caption>
+                    <strong>Administración de roles</strong></caption>
                 <tr>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style5"></td>
+                    <td class="auto-style6"></td>
                     <td class="auto-style3">
-                        <asp:Button ID="ButtonBack" runat="server" OnClick="ButtonBack_Click" Text="Volver" Width="170px" />
+                        <asp:Button ID="ButtonBack" runat="server" OnClick="ButtonBack_Click" Text="Volver" Width="162px" />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style2">
-                        <asp:Button ID="ButtonUserAccess" runat="server" OnClick="ButtonUserAccess_Click" Text="Administrar permisos usuarios" Width="304px" />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Crear rol" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style2">
-                        <asp:Button ID="ButtonDeleteUsers" runat="server" OnClick="ButtonDeleteUsers_Click" Text="Borrar usuarios" Width="304px" />
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Borrar rol" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>

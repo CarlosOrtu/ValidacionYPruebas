@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ProjectAdministration
+    public partial class RolAdministration
     {
 
         /// <summary>
@@ -33,30 +33,21 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control ButtonCreateUser.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateUser;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Control ButtonDelete.
+        /// Control Button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDelete;
-
-        /// <summary>
-        /// Control ButtonAddUserProject.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUserProject;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }

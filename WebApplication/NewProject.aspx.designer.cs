@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ProjectAdministration
+    public partial class NewProject
     {
 
         /// <summary>
@@ -24,6 +24,24 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control TextBoxName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
+
+        /// <summary>
+        /// Control TextBoxMax.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMax;
+
+        /// <summary>
         /// Control ButtonBack.
         /// </summary>
         /// <remarks>
@@ -33,30 +51,30 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control ButtonCreateUser.
+        /// Control TextBoxDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateUser;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDescription;
 
         /// <summary>
-        /// Control ButtonDelete.
+        /// Control ButtonCreateNewProject.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDelete;
+        protected global::System.Web.UI.WebControls.Button ButtonCreateNewProject;
 
         /// <summary>
-        /// Control ButtonAddUserProject.
+        /// Control lblEmpty.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUserProject;
+        protected global::System.Web.UI.WebControls.Label lblEmpty;
     }
 }

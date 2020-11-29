@@ -11,7 +11,7 @@ namespace WebApplication
 {
 
 
-    public partial class ProjectAdministration
+    public partial class NewRol
     {
 
         /// <summary>
@@ -24,6 +24,24 @@ namespace WebApplication
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control TextBoxName.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
+
+        /// <summary>
+        /// Control TextBoxID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxID;
+
+        /// <summary>
         /// Control ButtonBack.
         /// </summary>
         /// <remarks>
@@ -33,30 +51,30 @@ namespace WebApplication
         protected global::System.Web.UI.WebControls.Button ButtonBack;
 
         /// <summary>
-        /// Control ButtonCreateUser.
+        /// Control TextBoxDescription.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCreateUser;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDescription;
 
         /// <summary>
-        /// Control ButtonDelete.
+        /// Control ButtonAcept.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonDelete;
+        protected global::System.Web.UI.WebControls.Button ButtonAcept;
 
         /// <summary>
-        /// Control ButtonAddUserProject.
+        /// Control LabelError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAddUserProject;
+        protected global::System.Web.UI.WebControls.Label LabelError;
     }
 }

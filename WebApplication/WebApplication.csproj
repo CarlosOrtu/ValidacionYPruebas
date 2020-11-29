@@ -67,19 +67,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddUserToProject.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ChangeUserDates.aspx" />
     <Content Include="DeleteProject.aspx" />
+    <Content Include="DeleteRol.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="LogIn.aspx" />
+    <Content Include="NewProject.aspx" />
+    <Content Include="NewRol.aspx" />
     <Content Include="NewUser.aspx" />
     <Content Include="ProjectAdministration.aspx" />
     <Content Include="ProyectList.aspx" />
+    <Content Include="RolAdministration.aspx" />
+    <Content Include="UserAccess.aspx" />
     <Content Include="UserAdministration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUserToProject.aspx.cs">
+      <DependentUpon>AddUserToProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddUserToProject.aspx.designer.cs">
+      <DependentUpon>AddUserToProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,6 +113,13 @@
     </Compile>
     <Compile Include="DeleteProject.aspx.designer.cs">
       <DependentUpon>DeleteProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteRol.aspx.cs">
+      <DependentUpon>DeleteRol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteRol.aspx.designer.cs">
+      <DependentUpon>DeleteRol.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeleteUser.aspx.cs">
       <DependentUpon>DeleteUser.aspx</DependentUpon>
@@ -122,6 +142,20 @@
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NewProject.aspx.cs">
+      <DependentUpon>NewProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewProject.aspx.designer.cs">
+      <DependentUpon>NewProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewRol.aspx.cs">
+      <DependentUpon>NewRol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewRol.aspx.designer.cs">
+      <DependentUpon>NewRol.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewUser.aspx.cs">
       <DependentUpon>NewUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +177,20 @@
     </Compile>
     <Compile Include="ProyectList.aspx.designer.cs">
       <DependentUpon>ProyectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RolAdministration.aspx.cs">
+      <DependentUpon>RolAdministration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RolAdministration.aspx.designer.cs">
+      <DependentUpon>RolAdministration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAccess.aspx.cs">
+      <DependentUpon>UserAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserAccess.aspx.designer.cs">
+      <DependentUpon>UserAccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserAdministration.aspx.cs">
       <DependentUpon>UserAdministration.aspx</DependentUpon>

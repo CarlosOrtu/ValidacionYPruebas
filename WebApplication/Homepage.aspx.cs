@@ -41,6 +41,7 @@ namespace WebApplication
                     if (user.AdministradorProyectos)
                     {
                         ButtonAdminisProyect.Visible = true;
+                        ButtonAdminisRoles.Visible = true;
                     }
                     if (user.AdministradorUsuarios)
                     {
@@ -52,20 +53,6 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
-
-            Rol r = new Rol("Roleo", 1, "Roleillo");
-            Proyecto p1 = new Proyecto("proyecto1", 12, "Primer proyecto");
-            p1.AnadirUsuarioConRol(user, r);
-            Proyecto p2 = new Proyecto("proyecto2", 1, "Segundo proyecto");
-            p2.AnadirUsuarioConRol(user, r);
-            Proyecto p3 = new Proyecto("proyecto_vacio", 3, "Vacio");
-            p3.AnadirUsuarioConRol(user, r);
-            user.AnadirProyecto(p1);
-            user.AnadirProyecto(p2);
-            user.AnadirProyecto(p3);
-            dataBase.insertaProyecto(p1);
-            dataBase.insertaProyecto(p2);
-            dataBase.insertaProyecto(p3);
         }
 
         protected void ButtonLogOut_Click(object sender, EventArgs e)
@@ -98,6 +85,11 @@ namespace WebApplication
         protected void ButtonAdminisProyect_Click(object sender, EventArgs e)
         {
             Server.Transfer("ProjectAdministration.aspx");
+        }
+
+        protected void ButtonAdminisRoles_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("RolAdministration.aspx");
         }
     }
 }
