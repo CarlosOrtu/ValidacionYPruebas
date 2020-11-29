@@ -34,6 +34,7 @@ namespace WebApplication
 
         protected void ButtonAcept_Click(object sender, EventArgs e)
         {
+            //Se crea el rol si no hay campos vacios y si el rol todavia no existe.
             if(string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TextBoxID.Text) || string.IsNullOrEmpty(TextBoxDescription.Text))
             {
                 LabelError.Text = "No puede haber ningun campo nulo";

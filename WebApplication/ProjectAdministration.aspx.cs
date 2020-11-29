@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos todos los poryectos de la base de datos, comprobando que en la lista haya el mismo numero de poryectos que número de proyectos hay en la base.
             if(DropProject.Items.Count != dataBase.TblProyectos.Values.Count)
             {
                 int a = 0;
@@ -73,6 +74,7 @@ namespace WebApplication
 
         protected void ButtonShowData_Click(object sender, EventArgs e)
         {
+            //Mostramos los datos del proyecto.
             if (!string.IsNullOrEmpty(DropProject.SelectedValue))
             {
                 Proyecto project = dataBase.leeProyecto(DropProject.SelectedValue);

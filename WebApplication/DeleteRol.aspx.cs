@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos en el desplegable los roles de la base de datos.
             int a = 0;
             foreach(Rol r in dataBase.TblRoles.Values)
             {

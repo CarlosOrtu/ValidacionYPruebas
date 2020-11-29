@@ -39,6 +39,7 @@ namespace WebApplication
 
         protected void ButtonCreateNewProject_Click(object sender, EventArgs e)
         {
+            //Se crea el proyecto si no hay campos nulos y si el proyecto todavia no existe.
             if(string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TextBoxMax.Text) || string.IsNullOrEmpty(TextBoxDescription.Text))
             {
                 lblEmpty.Text = "No puede haber campos nulos";

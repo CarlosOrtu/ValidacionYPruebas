@@ -29,6 +29,7 @@ namespace WebApplication
                 Server.Transfer("LogIn.aspx");
             }
 
+            //Cargamos en el desplegable los roles de la base de datos.
             int a = 0;
             foreach(Rol r in dataBase.TblRoles.Values)
             {
@@ -44,6 +45,7 @@ namespace WebApplication
 
         protected void ButtonAcept_Click(object sender, EventArgs e)
         {
+            //Si no hay campos vacios modificamos los datos.
             if (string.IsNullOrEmpty(TextBoxDescription.Text) || string.IsNullOrEmpty(TextBoxID.Text))
             {
                 lblEmpty.Text = "No puede haber ningún campo vacio";

@@ -35,6 +35,7 @@ namespace WebApplication
 
         protected void ButtonChange_Click(object sender, EventArgs e)
         {
+            //Si no hay ningún campo vacio y se cumplen las normas sintácticas se modifican los datos.
             if(string.IsNullOrEmpty(TextBoxEmail.Text) || string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TextBoxSurname.Text) || string.IsNullOrEmpty(TextBoxPhone.Text))
             {
                 lblEmpty.Text = "No puede haber campos vacios";
