@@ -35,9 +35,10 @@ namespace WebApplication
 
         protected void ButtonCreateNewUser_Click(object sender, EventArgs e)
         {
-            //Elimina el texto de error de los label. ¿Alguna Herramienta que no nos haga hacer esto? Una herramienta del tipo "Error"?
+            //Elimina el texto de error de los label
             NewLabel();
 
+            //Si hay algún campo vacio no crea usuario.
             if (string.IsNullOrEmpty(NewTBUserName.Text) || string.IsNullOrEmpty(NewTBPassword.Text) || string.IsNullOrEmpty(NewTBRepeatPassword.Text)
                 || string.IsNullOrEmpty(NewTBEmail.Text) || string.IsNullOrEmpty(NewTBName.Text) || string.IsNullOrEmpty(NewTBSurname.Text)
                 || string.IsNullOrEmpty(NewTBPhone.Text))
@@ -58,6 +59,7 @@ namespace WebApplication
                             {
                                 if (user.CheckPhone())
                                 {
+                                    //Si cumple todos los campos se crea el usuario.
                                     dataBase.insertaUsuario(user);
                                     Server.Transfer("LogIn.aspx");
                                 }

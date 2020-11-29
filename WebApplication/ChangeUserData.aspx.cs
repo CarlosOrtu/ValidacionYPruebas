@@ -35,16 +35,24 @@ namespace WebApplication
 
         protected void ButtonChange_Click(object sender, EventArgs e)
         {
-            user.ModificarDatos(TextBoxEmail.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text);
-            dataBase.modificaDatosUsuario(user);
-            if (!user.Email.Equals(TextBoxEmail.Text))
+            if(string.IsNullOrEmpty(TextBoxEmail.Text) || string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TextBoxSurname.Text) || string.IsNullOrEmpty(TextBoxPhone.Text))
             {
-                LblNoChangeEmail.Text = "No se modifico el email porque no es sintacticamente correcto";
+                lblEmpty.Text = "No puede haber campos vacios";
             }
-            if (!user.Phone.Equals(TextBoxPhone.Text))
+            else
             {
-                LblNoChangePhone.Text = "No se modificó el telefono porque no es correcto";
+                user.ModificarDatos(TextBoxEmail.Text, TextBoxName.Text, TextBoxSurname.Text, TextBoxPhone.Text);
+                dataBase.modificaDatosUsuario(user);
+                if (!user.Email.Equals(TextBoxEmail.Text))
+                {
+                    LblNoChangeEmail.Text = "No se modifico el email porque no es sintacticamente correcto";
+                }
+                if (!user.Phone.Equals(TextBoxPhone.Text))
+                {
+                    LblNoChangePhone.Text = "No se modificó el telefono porque no es correcto";
+                }
             }
+            
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)

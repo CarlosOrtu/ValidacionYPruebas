@@ -32,8 +32,10 @@ namespace WebApplication
         protected void ButtonLogIn_Click(object sender, EventArgs e)
         {
             user = dataBase.leeUsuario(TBUsername.Text);
+            //Si el usuario no es null significa que está en la base de datos.
             if( user != null && user.CheckPassword(TBPassword.Text))
             {
+                //Si está activo el usuario entramos al captcha, si no, tiene que cambiar la contraseña para que el usuario se active.
                 if(user.Active == true)
                 {
                     Session["Usuario"] = user;

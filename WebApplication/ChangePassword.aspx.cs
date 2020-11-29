@@ -24,6 +24,7 @@ namespace WebApplication
             }
 
             user = (Usuario)Session["Usuario"];
+            //Si la variable de sesión es nula pasamos a la pagina de login ya que es necesario iniciar sesión.
             if (user == null)
             {
                 Server.Transfer("LogIn.aspx");
@@ -35,7 +36,7 @@ namespace WebApplication
             if(user.ChangePassword(TBOldPassword.Text,TBChangePassword.Text) && TBChangePassword.Text.Equals(TBChangePassword2.Text))
             {
                 user.LastChangePassword = DateTime.Now;
-                user.Active = true;
+                user.Active = true; //Al cambiar la contraseña se activa el usuario
                 Server.Transfer("Captcha.aspx");
             }
             else

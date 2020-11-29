@@ -28,6 +28,7 @@ namespace WebApplication
             user = (Usuario)Session["Usuario"];
             if (user != null)
             {
+                //Si el usuario no es null mostramos sus datos.
                 lblUserName.Text = user.UserName;
                 lblEmail.Text = user.Email;
                 lblName.Text = user.Name;
@@ -35,6 +36,7 @@ namespace WebApplication
                 lblPhone.Text = user.Phone;
                 lblLastPasswordChange.Text = user.LastChangePassword.ToString();
                 lblLastLogin.Text = user.LastLogIn.ToString();
+                //Si es admisntrador se muestran los botones correspondientes a su tipo.
                 if(user.AdministradorUsuarios || user.AdministradorProyectos)
                 {
                     LblTitleAdmin.Text = "Apartado del Administrador";
@@ -58,7 +60,6 @@ namespace WebApplication
         {
             user = null;
             Server.Transfer("LogIn.aspx");
-            //Si usamos Botton.Visible = True; vemos el boton si esta en falso no. TENER EN CUENTA
         }
 
         protected void ButtonChangePassword_Click(object sender, EventArgs e)
