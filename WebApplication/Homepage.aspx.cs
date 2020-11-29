@@ -41,7 +41,6 @@ namespace WebApplication
                     if (user.AdministradorProyectos)
                     {
                         ButtonAdminisProyect.Visible = true;
-                        ButtonAdminisRoles.Visible = true;
                     }
                     if (user.AdministradorUsuarios)
                     {
@@ -85,11 +84,6 @@ namespace WebApplication
         protected void ButtonAdminisProyect_Click(object sender, EventArgs e)
         {
             Server.Transfer("ProjectAdministration.aspx");
-        }
-
-        protected void ButtonAdminisRoles_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("RolAdministration.aspx");
         }
     }
 }

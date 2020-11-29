@@ -61,6 +61,14 @@
                     </td>
                     <td>&nbsp;</td>
                 </tr>
+                <tr>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style6">
+                        <asp:Button ID="ButtonAdminRoles" runat="server" OnClick="ButtonAdminRoles_Click" Text="Adminsitración de roles" Width="315px" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
             </table>
         </div>
     </form>
