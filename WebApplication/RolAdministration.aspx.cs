@@ -28,6 +28,16 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            if (DropRoles.Items.Count != dataBase.TblRoles.Values.Count)
+            {
+                int a = 0;
+                foreach (Rol r in dataBase.TblRoles.Values)
+                {
+                    DropRoles.Items.Insert(a, r.Tipo_rol);
+                    a++;
+                }
+            }
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
@@ -48,6 +58,21 @@ namespace WebApplication
         protected void ButtonChangeRol_Click(object sender, EventArgs e)
         {
             Server.Transfer("ChangeRolData.aspx");
+        }
+
+        protected void ButtonShow_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(DropRoles.SelectedValue))
+            {
+                lblEmpty.Text = "No podemos msotrar los datos si no hay un rol";
+            }
+            else
+            {
+                Rol rol = dataBase.LeeRol(DropRoles.SelectedValue);
+                lblNombre.Text = rol.Tipo_rol;
+                lblID.Text = rol.ID1.ToString();
+                lblDescription.Text = rol.Descripcion;
+            }
         }
     }
 }

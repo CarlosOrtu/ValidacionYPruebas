@@ -30,6 +30,26 @@
             width: 1009px;
             height: 33px;
         }
+        .auto-style8 {
+            color: #006699;
+        }
+        .auto-style9 {
+            width: 320px;
+        }
+        .auto-style12 {
+            width: 320px;
+            text-align: right;
+        }
+        .auto-style13 {
+            text-align: center;
+        }
+        .auto-style14 {
+            text-decoration: underline;
+        }
+        .auto-style15 {
+            text-align: center;
+            width: 286px;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +88,51 @@
                 </tr>
             </table>
         </div>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style9"><strong><span class="auto-style8">Vista previa de proyectos disponibles:</span></strong></td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style15"><strong><span class="auto-style14">Nombre del rol</span></strong></td>
+                <td class="auto-style13"><strong><span class="auto-style14">ID de rol</span></strong></td>
+                <td class="auto-style13"><strong><span class="auto-style14">Descripción</span></strong></td>
+            </tr>
+            <tr>
+                <td class="auto-style12">
+                    <asp:DropDownList ID="DropRoles" runat="server" Width="199px">
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style15">
+                    <asp:Label ID="lblNombre" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style13">
+                    <asp:Label ID="lblID" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style13">
+                    <asp:Label ID="lblDescription" runat="server"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style12">
+                    <asp:Button ID="ButtonShow" runat="server" OnClick="ButtonShow_Click" Text="Mostrar datos" Width="127px" />
+                </td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style12">
+                    <asp:Label ID="lblEmpty" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
+                </td>
+                <td class="auto-style15">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style13">&nbsp;</td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
