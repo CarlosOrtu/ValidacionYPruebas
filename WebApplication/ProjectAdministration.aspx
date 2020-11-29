@@ -162,7 +162,9 @@
                 <td class="auto-style12">&nbsp;</td>
                 <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
+                <td class="auto-style14">
+                    <asp:Button ID="ButtonRol" runat="server" OnClick="ButtonRol_Click" Text="Ver rol" Visible="False" Width="131px" />
+                </td>
             </tr>
             <tr>
                 <td class="auto-style10">
@@ -171,7 +173,9 @@
                 <td class="auto-style12">&nbsp;</td>
                 <td class="auto-style16">&nbsp;</td>
                 <td class="auto-style19">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
+                <td class="auto-style14">
+                    <asp:Label ID="lblRol" runat="server" Font-Bold="True" ForeColor="#00CC00" Visible="False"></asp:Label>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style9">&nbsp;</td>

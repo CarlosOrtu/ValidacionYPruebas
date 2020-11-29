@@ -88,12 +88,20 @@ namespace WebApplication
                     b++;
                 }
                 DropUsers.Visible = true;
+                ButtonRol.Visible = true;
+                lblRol.Visible = true;
             }
             else
             {
                 lblEmpty.Text = "No se puede mostrar datos porque el campo está vacio";
             }
                 
+        }
+
+        protected void ButtonRol_Click(object sender, EventArgs e)
+        {
+            Proyecto project = dataBase.leeProyecto(DropProject.SelectedValue);
+            lblRol.Text = project.Lista_usuarios[dataBase.leeUsuario(DropUsers.SelectedValue)].Tipo_rol;
         }
     }
 }
