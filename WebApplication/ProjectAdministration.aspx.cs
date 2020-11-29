@@ -103,5 +103,10 @@ namespace WebApplication
             Proyecto project = dataBase.leeProyecto(DropProject.SelectedValue);
             lblRol.Text = project.Lista_usuarios[dataBase.leeUsuario(DropUsers.SelectedValue)].Tipo_rol;
         }
+
+        protected void ButtonHU_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("HUAdministration.aspx");
+        }
     }
 }

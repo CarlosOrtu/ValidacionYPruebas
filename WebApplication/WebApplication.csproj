@@ -69,17 +69,21 @@
   <ItemGroup>
     <Content Include="AddUserToProject.aspx" />
     <Content Include="Captcha.aspx" />
+    <Content Include="ChangeHUData.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="ChangeProjectData.aspx" />
     <Content Include="ChangeRolData.aspx" />
     <Content Include="ChangeUserData.aspx" />
+    <Content Include="DeleteHU.aspx" />
     <Content Include="DeleteProject.aspx" />
     <Content Include="DeleteRol.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="Homepage.aspx" />
+    <Content Include="HUAdministration.aspx" />
     <Content Include="Images\Screenshot_1.png" />
     <Content Include="Images\Usuario.png" />
     <Content Include="LogIn.aspx" />
+    <Content Include="NewHU.aspx" />
     <Content Include="NewProject.aspx" />
     <Content Include="NewRol.aspx" />
     <Content Include="NewUser.aspx" />
@@ -104,6 +108,13 @@
     </Compile>
     <Compile Include="Captcha.aspx.designer.cs">
       <DependentUpon>Captcha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeHUData.aspx.cs">
+      <DependentUpon>ChangeHUData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeHUData.aspx.designer.cs">
+      <DependentUpon>ChangeHUData.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
@@ -133,6 +144,13 @@
     <Compile Include="ChangeUserData.aspx.designer.cs">
       <DependentUpon>ChangeUserData.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteHU.aspx.cs">
+      <DependentUpon>DeleteHU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteHU.aspx.designer.cs">
+      <DependentUpon>DeleteHU.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DeleteProject.aspx.cs">
       <DependentUpon>DeleteProject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,12 +179,26 @@
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HUAdministration.aspx.cs">
+      <DependentUpon>HUAdministration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HUAdministration.aspx.designer.cs">
+      <DependentUpon>HUAdministration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewHU.aspx.cs">
+      <DependentUpon>NewHU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewHU.aspx.designer.cs">
+      <DependentUpon>NewHU.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewProject.aspx.cs">
       <DependentUpon>NewProject.aspx</DependentUpon>
