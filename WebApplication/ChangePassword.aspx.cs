@@ -35,6 +35,7 @@ namespace WebApplication
             if(user.ChangePassword(TBOldPassword.Text,TBChangePassword.Text) && TBChangePassword.Text.Equals(TBChangePassword2.Text))
             {
                 user.LastChangePassword = DateTime.Now;
+                user.Active = true;
                 Server.Transfer("Homepage.aspx");
             }
             else

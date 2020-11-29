@@ -32,11 +32,20 @@ namespace WebApplication
         protected void ButtonLogIn_Click(object sender, EventArgs e)
         {
             user = dataBase.leeUsuario(TBUsername.Text);
-            if( user != null && user.CheckPassword(TBPassword.Text) && user.Active == true)
+            if( user != null && user.CheckPassword(TBPassword.Text))
             {
-                Session["Usuario"] = user;
-                user.LastLogIn = DateTime.Now;
-                Server.Transfer("Homepage.aspx");
+                if(user.Active == true)
+                {
+                    Session["Usuario"] = user;
+                    user.LastLogIn = DateTime.Now;
+                    Server.Transfer("Homepage.aspx");
+                }
+                else
+                {
+                    Session["Usuario"] = user;
+                    user.LastLogIn = DateTime.Now;
+                    Server.Transfer("ChangePassword.aspx");
+                }
             }
             else
             {

@@ -58,9 +58,8 @@ namespace WebApplication
                             {
                                 if (user.CheckPhone())
                                 {
-                                    Session["Usuario"] = user;
                                     dataBase.insertaUsuario(user);
-                                    Server.Transfer("ChangePassword.aspx");
+                                    Server.Transfer("LogIn.aspx");
                                 }
                                 else
                                 {
