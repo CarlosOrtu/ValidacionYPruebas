@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication
 {
-    public partial class RolAdministration : System.Web.UI.Page
+    public partial class ChangeProjectDates : System.Web.UI.Page
     {
         Usuario user;
         DBPruebas dataBase;
@@ -28,6 +28,13 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+
+            int a = 0;
+            foreach(Proyecto p in dataBase.TblProyectos.Values)
+            {
+                DropProjects.Items.Insert(a, p.Nombre);
+                a++;
+            }
         }
 
         protected void ButtonBack_Click(object sender, EventArgs e)
@@ -35,19 +42,18 @@ namespace WebApplication
             Server.Transfer("ProjectAdministration.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ButtonAcept_Click(object sender, EventArgs e)
         {
-            Server.Transfer("NewRol.aspx");
-        }
-
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("DeleteRol.aspx");
-        }
-
-        protected void ButtonChangeRol_Click(object sender, EventArgs e)
-        {
-            Server.Transfer("ChangeRolData.aspx");
+            if(string.IsNullOrEmpty(TextBoxDescription.Text) || string.IsNullOrEmpty(TextBoxMax.Text))
+            {
+                lblEmpty.Text = "No puede haber ningún campo vacio";
+            }
+            else
+            {
+                Proyecto proyecto = dataBase.leeProyecto(DropProjects.SelectedValue);
+                proyecto.ModificarDatos(Int32.Parse(TextBoxMax.Text), TextBoxDescription.Text);
+                dataBase.modificaDatosProyecto(proyecto);
+            }
         }
     }
 }

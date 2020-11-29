@@ -54,5 +54,10 @@ namespace WebApplication
         {
             Server.Transfer("RolAdministration.aspx");
         }
+
+        protected void ButtonChangeDates_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("ChangeProjectData.aspx");
+        }
     }
 }

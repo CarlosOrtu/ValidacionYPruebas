@@ -73,7 +73,7 @@ namespace WebApplication
 
         protected void ButtonChangeUserDates_Click(object sender, EventArgs e)
         {
-            Server.Transfer("ChangeUserDates.aspx");
+            Server.Transfer("ChangeUserData.aspx");
         }
 
         protected void ButtonAdminisUser_Click(object sender, EventArgs e)

@@ -70,12 +70,13 @@
     <Content Include="AddUserToProject.aspx" />
     <Content Include="Captcha.aspx" />
     <Content Include="ChangePassword.aspx" />
-    <Content Include="ChangeUserDates.aspx" />
+    <Content Include="ChangeProjectData.aspx" />
+    <Content Include="ChangeRolData.aspx" />
+    <Content Include="ChangeUserData.aspx" />
     <Content Include="DeleteProject.aspx" />
     <Content Include="DeleteRol.aspx" />
     <Content Include="DeleteUser.aspx" />
     <Content Include="Homepage.aspx" />
-    <Content Include="Images\captcha.png" />
     <Content Include="Images\Screenshot_1.png" />
     <Content Include="LogIn.aspx" />
     <Content Include="NewProject.aspx" />
@@ -110,12 +111,26 @@
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ChangeUserDates.aspx.cs">
-      <DependentUpon>ChangeUserDates.aspx</DependentUpon>
+    <Compile Include="ChangeProjectData.aspx.cs">
+      <DependentUpon>ChangeProjectData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChangeUserDates.aspx.designer.cs">
-      <DependentUpon>ChangeUserDates.aspx</DependentUpon>
+    <Compile Include="ChangeProjectData.aspx.designer.cs">
+      <DependentUpon>ChangeProjectData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeRolData.aspx.cs">
+      <DependentUpon>ChangeRolData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeRolData.aspx.designer.cs">
+      <DependentUpon>ChangeRolData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeUserData.aspx.cs">
+      <DependentUpon>ChangeUserData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeUserData.aspx.designer.cs">
+      <DependentUpon>ChangeUserData.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeleteProject.aspx.cs">
       <DependentUpon>DeleteProject.aspx</DependentUpon>

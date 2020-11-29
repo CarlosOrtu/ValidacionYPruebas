@@ -36,7 +36,7 @@ namespace WebApplication
             {
                 user.LastChangePassword = DateTime.Now;
                 user.Active = true;
-                Server.Transfer("Homepage.aspx");
+                Server.Transfer("Captcha.aspx");
             }
             else
             {

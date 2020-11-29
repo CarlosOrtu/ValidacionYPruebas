@@ -55,6 +55,13 @@
                 <tr>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style2">
+                        <asp:Button ID="ButtonChangeRol" runat="server" OnClick="ButtonChangeRol_Click" Text="Modificar datos rol" Width="315px" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style2">
                         <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Borrar rol" Width="315px" />
                     </td>
                     <td>&nbsp;</td>

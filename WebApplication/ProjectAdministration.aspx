@@ -49,6 +49,14 @@
                     <td class="auto-style7">
                         &nbsp;</td>
                     <td class="auto-style6">
+                        <asp:Button ID="ButtonChangeDates" runat="server" OnClick="ButtonChangeDates_Click" Text="Modificar datos poryecto" Width="315px" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style6">
                         <asp:Button ID="ButtonDelete" runat="server" OnClick="ButtonDelete_Click" Text="Borrar proyectos" Width="315px" />
                     </td>
                     <td>&nbsp;</td>
