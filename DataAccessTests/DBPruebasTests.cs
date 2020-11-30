@@ -80,7 +80,16 @@ namespace DataAccess.Tests
             Usuario uBien = new Usuario("carlos", "contrasena_1", "carlos_nuevo@gmail.com", "carlos", "ortunez", "666666666");
             Usuario uInexistente = new Usuario("guille", "contrasena_2", "guille@gmail.com", "guille", "saldaña", "65383927");
             Assert.IsFalse(b1.modificaDatosUsuario(uMal));
+            p1.AnadirUsuarioConRol(u1, r1);
             Assert.IsTrue(b1.modificaDatosUsuario(uBien));
+            foreach(Usuario uaux in p1.Lista_usuarios.Keys)
+            {
+                if (uaux.Equals(u1))
+                {
+                    Assert.IsFalse(uaux.Email == "carlos@gmail.com" && uaux.Phone== "645432142");
+                    Assert.IsTrue(uaux.Email == "carlos_nuevo@gmail.com" && uaux.Phone == "666666666");
+                }
+            }
             Assert.IsFalse(b1.modificaDatosUsuario(uInexistente));
         }
 
@@ -102,6 +111,7 @@ namespace DataAccess.Tests
         [TestMethod()]
         public void BorraProyectoTest()
         {
+            //Añadimos un proyecto a un usuario para comprobar si al eliminarlo este tambien se elimina
             u1.AnadirProyecto(p1);
             Assert.AreEqual(b1.borraProyecto(p1.Nombre), p1);
             Assert.IsFalse(u1.LeerProyecto(p1));
