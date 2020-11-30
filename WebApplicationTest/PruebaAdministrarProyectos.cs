@@ -81,14 +81,7 @@ namespace WebApplicationTest
             driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Proyecto de prueba");
             driver.FindElement(By.Id("ButtonCreateNewProject")).Click();
             driver.FindElement(By.Id("ButtonBack")).Click();
-            try
-            {
-                Assert.IsTrue(driver.FindElement(By.Id("DropProject")).Text.Contains("ProyectoPrueba"));
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
+            new SelectElement(driver.FindElement(By.Id("DropProject"))).SelectByText("ProyectoPrueba");
             driver.FindElement(By.Id("ButtonShowData")).Click();
             try
             {
@@ -117,15 +110,8 @@ namespace WebApplicationTest
             driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Nueva descripción");
             driver.FindElement(By.Id("ButtonAcept")).Click();
             driver.FindElement(By.Id("ButtonBack")).Click();
+            new SelectElement(driver.FindElement(By.Id("DropProject"))).SelectByText("ProyectoPrueba");
             driver.FindElement(By.Id("ButtonShowData")).Click();
-            try
-            {
-                Assert.AreEqual("ProyectoPrueba", driver.FindElement(By.Id("lblName")).Text);
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
             try
             {
                 Assert.AreEqual("5", driver.FindElement(By.Id("lblMax")).Text);

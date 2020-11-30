@@ -12,7 +12,7 @@ namespace WebApplicationTest
     //Creamos un usuario, comprobamos el inicio de sesion de este usuario, comprobamos la verificacion mediante el cambio de contraseña 
     //y comprobamos el captcha.
     [TestClass]
-    public class CrearNuevoUsuarioCorrecto
+    public class CrearNuevoUsuarioCorrecto_Chrome
     {
         private static IWebDriver driver;
         private StringBuilder verificationErrors;
