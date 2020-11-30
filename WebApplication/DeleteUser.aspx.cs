@@ -29,6 +29,10 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+            else if (user.AdministradorUsuarios == false)
+            {
+                Server.Transfer("Homepage.aspx");
+            }
 
             //Cargamos en el desplegable todos los usuarios de la base de datos.
             int a = 0;

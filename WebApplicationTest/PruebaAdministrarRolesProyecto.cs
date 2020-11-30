@@ -109,6 +109,7 @@ namespace WebApplicationTest
                 verificationErrors.Append(e.Message);
             }
             driver.FindElement(By.Id("ButtonChangeRol")).Click();
+            new SelectElement(driver.FindElement(By.Id("DropRol"))).SelectByText("RolPrueba1");
             driver.FindElement(By.Id("TextBoxID")).Click();
             driver.FindElement(By.Id("TextBoxID")).Clear();
             driver.FindElement(By.Id("TextBoxID")).SendKeys("10");

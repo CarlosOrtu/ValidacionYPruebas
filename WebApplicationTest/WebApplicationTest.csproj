@@ -66,6 +66,8 @@
     <Compile Include="PruebaBorrarUsuario.cs" />
     <Compile Include="PruebaModificarDatos.cs" />
     <Compile Include="PruebaAdministrarRolesProyecto.cs" />
+    <Compile Include="PruebaAdministrarHistoriasDeUsuario.cs" />
+    <Compile Include="PruebaDeSeguridad.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

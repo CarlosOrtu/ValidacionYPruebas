@@ -28,6 +28,10 @@ namespace WebApplication
             {
                 Server.Transfer("LogIn.aspx");
             }
+            else if (user.AdministradorProyectos == false)
+            {
+                Server.Transfer("Homepage.aspx");
+            }
 
             LabelError.Text = "";
         }

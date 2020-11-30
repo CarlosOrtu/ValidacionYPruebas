@@ -27,6 +27,9 @@ namespace WebApplication
             if (user == null)
             {
                 Server.Transfer("LogIn.aspx");
+            }else if (user.AdministradorProyectos == false)
+            {
+                Server.Transfer("Homepage.aspx");
             }
 
             //Cargamos todos los poryectos de la base de datos, comprobando que en la lista haya el mismo numero de poryectos que número de proyectos hay en la base.
