@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.Design;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
@@ -115,17 +112,6 @@ namespace ClassLib
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password);
             SHA256 mySHA256 = SHA256.Create(); bytes = mySHA256.ComputeHash(bytes);
             return (System.Text.Encoding.ASCII.GetString(bytes));
-        }
-
-        public Boolean LogIn(string userName, string password)
-        {
-            if (userName.Equals(this.userName) && EncryptPassword(password).Equals(this.password) && active == true)
-            {
-                lastLogIn = DateTime.Now;
-                return true;
-            }
-
-            return false;
         }
 
         public void ModificarDatos(string email, string name, string surname, string phone)

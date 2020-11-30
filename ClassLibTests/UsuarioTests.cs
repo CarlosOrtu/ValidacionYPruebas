@@ -84,16 +84,6 @@ namespace ClassLib.Tests
         }
 
         [TestMethod()]
-        public void LogInTest()
-        {
-            Assert.IsFalse(u1.LogIn("carlos", "contrasena_1"));
-            Assert.IsFalse(u1.LogIn("carlos", "contrasena2"));
-            u1.ChangePassword("contrasena_1", "contrasena_nueva1");
-            Assert.IsFalse(u1.LogIn("carlos", "contrasena_1"));
-            Assert.IsTrue(u1.LogIn("carlos", "contrasena_nueva1"));
-        }
-
-        [TestMethod()]
         public void EqualsTest()
         {
             Assert.IsFalse(u1.Equals(u2));
