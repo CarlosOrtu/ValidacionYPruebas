@@ -9,6 +9,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebApplicationTest
 {
+    //Probamos a realizar un logIn con los datos mal y comprobamos el error
     [TestClass]
     public class PruebaUsuarioIncorrecto
     {
