@@ -9,11 +9,10 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebApplicationTest
 {
-    //Creamos un proyecto, modificamos sus datos, creamos un nuevo rol, 
-    //añadimos un usuario con ese rol y eliminamos el proyecto, comprobando 
-    //en cada uno de los pasos toda la información
+    //Creamos un rol y comprobamos todos sus campos, lo modificamos y comprobamos los campos modificados y lo eliminamos 
+    //y comprobamos que no existe
     [TestClass]
-    public class PruebaAdministrarProyectos
+    public class PruebaAdministrarRolesProyecto
     {
         private static IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -55,7 +54,7 @@ namespace WebApplicationTest
         }
 
         [TestMethod]
-        public void ThePruebaAdministrarProyectosTest()
+        public void ThePruebaAdministrarRolesProyectoTest()
         {
             driver.Navigate().GoToUrl("https://localhost:44390/LogIn.aspx");
             driver.FindElement(By.Id("TBUsername")).Click();
@@ -69,115 +68,81 @@ namespace WebApplicationTest
             driver.FindElement(By.Id("TextBoxCaptcha")).SendKeys("captcha");
             driver.FindElement(By.Id("ButtonAcept")).Click();
             driver.FindElement(By.Id("ButtonAdminisProyect")).Click();
-            driver.FindElement(By.Id("ButtonCreateUser")).Click();
-            driver.FindElement(By.Id("TextBoxName")).Click();
-            driver.FindElement(By.Id("TextBoxName")).Clear();
-            driver.FindElement(By.Id("TextBoxName")).SendKeys("ProyectoPrueba");
-            driver.FindElement(By.Id("TextBoxMax")).Click();
-            driver.FindElement(By.Id("TextBoxMax")).Clear();
-            driver.FindElement(By.Id("TextBoxMax")).SendKeys("3");
-            driver.FindElement(By.Id("TextBoxDescription")).Click();
-            driver.FindElement(By.Id("TextBoxDescription")).Clear();
-            driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Proyecto de prueba");
-            driver.FindElement(By.Id("ButtonCreateNewProject")).Click();
-            driver.FindElement(By.Id("ButtonBack")).Click();
-            try
-            {
-                Assert.IsTrue(driver.FindElement(By.Id("DropProject")).Text.Contains("ProyectoPrueba"));
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
-            driver.FindElement(By.Id("ButtonShowData")).Click();
-            try
-            {
-                Assert.AreEqual("ProyectoPrueba", driver.FindElement(By.Id("lblName")).Text);
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
-            try
-            {
-                Assert.AreEqual("3", driver.FindElement(By.Id("lblMax")).Text);
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
-            driver.FindElement(By.Id("ButtonChangeDates")).Click();
-            driver.FindElement(By.Id("DropProjects")).Click();
-            driver.FindElement(By.Id("TextBoxMax")).Click();
-            driver.FindElement(By.Id("TextBoxMax")).Clear();
-            driver.FindElement(By.Id("TextBoxMax")).SendKeys("5");
-            driver.FindElement(By.Id("TextBoxDescription")).Click();
-            driver.FindElement(By.Id("TextBoxDescription")).Clear();
-            driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Nueva descripción");
-            driver.FindElement(By.Id("ButtonAcept")).Click();
-            driver.FindElement(By.Id("ButtonBack")).Click();
-            driver.FindElement(By.Id("ButtonShowData")).Click();
-            try
-            {
-                Assert.AreEqual("ProyectoPrueba", driver.FindElement(By.Id("lblName")).Text);
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
-            try
-            {
-                Assert.AreEqual("5", driver.FindElement(By.Id("lblMax")).Text);
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
-            try
-            {
-                Assert.AreEqual("Nueva descripción", driver.FindElement(By.Id("lblDescription")).Text);
-            }
-            catch (Exception e)
-            {
-                verificationErrors.Append(e.Message);
-            }
             driver.FindElement(By.Id("ButtonAdminRoles")).Click();
             driver.FindElement(By.Id("Button1")).Click();
             driver.FindElement(By.Id("TextBoxName")).Click();
             driver.FindElement(By.Id("TextBoxName")).Clear();
-            driver.FindElement(By.Id("TextBoxName")).SendKeys("RolPrueba");
+            driver.FindElement(By.Id("TextBoxName")).SendKeys("RolPrueba1");
             driver.FindElement(By.Id("TextBoxID")).Click();
             driver.FindElement(By.Id("TextBoxID")).Clear();
-            driver.FindElement(By.Id("TextBoxID")).SendKeys("1");
+            driver.FindElement(By.Id("TextBoxID")).SendKeys("10");
             driver.FindElement(By.Id("TextBoxDescription")).Click();
             driver.FindElement(By.Id("TextBoxDescription")).Clear();
-            driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Prueba");
+            driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Rol de prueba 1");
             driver.FindElement(By.Id("ButtonAcept")).Click();
             driver.FindElement(By.Id("ButtonBack")).Click();
-            driver.FindElement(By.Id("ButtonBack")).Click();
-            driver.FindElement(By.Id("ButtonAddUserProject")).Click();
-            driver.FindElement(By.Id("DropUsers")).Click();
-            new SelectElement(driver.FindElement(By.Id("DropUsers"))).SelectByText("Carlos");
-            driver.FindElement(By.Id("DropUsers")).Click();
-            driver.FindElement(By.Id("DropRol")).Click();
-            driver.FindElement(By.Id("DropRol")).Click();
-            driver.FindElement(By.Id("ButtonAcept")).Click();
-            driver.FindElement(By.Id("ButtonBack")).Click();
-            driver.FindElement(By.Id("ButtonShowData")).Click();
+            driver.FindElement(By.Id("DropRoles")).Click();
+            new SelectElement(driver.FindElement(By.Id("DropRoles"))).SelectByText("RolPrueba1");
+            driver.FindElement(By.Id("ButtonShow")).Click();
             try
             {
-                Assert.IsTrue(driver.FindElement(By.Id("DropUsers")).Text.Contains("Carlos"));
+                Assert.AreEqual("RolPrueba1", driver.FindElement(By.Id("lblNombre")).Text);
             }
             catch (Exception e)
             {
                 verificationErrors.Append(e.Message);
             }
-            driver.FindElement(By.Id("ButtonDelete")).Click();
-            driver.FindElement(By.Id("DropProjects")).Click();
-            driver.FindElement(By.Id("DropProjects")).Click();
+            try
+            {
+                Assert.AreEqual("10", driver.FindElement(By.Id("lblID")).Text);
+            }
+            catch (Exception e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            try
+            {
+                Assert.AreEqual("Rol de prueba 1", driver.FindElement(By.Id("lblDescription")).Text);
+            }
+            catch (Exception e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            driver.FindElement(By.Id("ButtonChangeRol")).Click();
+            driver.FindElement(By.Id("TextBoxID")).Click();
+            driver.FindElement(By.Id("TextBoxID")).Clear();
+            driver.FindElement(By.Id("TextBoxID")).SendKeys("10");
+            driver.FindElement(By.Id("TextBoxDescription")).Click();
+            driver.FindElement(By.Id("TextBoxDescription")).Clear();
+            driver.FindElement(By.Id("TextBoxDescription")).SendKeys("Rol de prueba modificado");
+            driver.FindElement(By.Id("ButtonAcept")).Click();
+            driver.FindElement(By.Id("ButtonBack")).Click();
+            driver.FindElement(By.Id("DropRoles")).Click();
+            new SelectElement(driver.FindElement(By.Id("DropRoles"))).SelectByText("RolPrueba1");
+            driver.FindElement(By.Id("ButtonShow")).Click();
+            try
+            {
+                Assert.AreEqual("Rol de prueba modificado", driver.FindElement(By.Id("lblDescription")).Text);
+            }
+            catch (Exception e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            driver.FindElement(By.Id("Button2")).Click();
+            driver.FindElement(By.Id("DropRol")).Click();
+            driver.FindElement(By.Id("DropRol")).Click();
             driver.FindElement(By.Id("ButtonDelete")).Click();
             driver.FindElement(By.Id("ButtonBack")).Click();
-            driver.FindElement(By.Id("DropProject")).Click();
+            driver.FindElement(By.Id("DropRoles")).Click();
+            try
+            {
+                Assert.AreEqual(null, driver.FindElement(By.Id("DropRoles")).GetAttribute("RolPrueba1"));
+            }
+            catch (Exception e)
+            {
+                verificationErrors.Append(e.Message);
+            }
+            driver.FindElement(By.Id("ButtonBack")).Click();
             driver.FindElement(By.Id("ButtonBack")).Click();
             driver.FindElement(By.Id("ButtonLogOut")).Click();
         }
